@@ -1,1 +1,12 @@
+# 00_all
 
+### This is our final Quarto Markdown document with all other documents embedded
+
+## 01_load
+
+```{r child  = "./01_load.qmd"}
+```
+
+## 02_clean
+
+## 03_describe
