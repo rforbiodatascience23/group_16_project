@@ -1,5 +1,1 @@
-This is the file that we used to load data
 
-```{r}
-data <- read.csv("/home/people/s232289/projects/R_project/_raw/processed.cleveland.data",header = FALSE)
-```
