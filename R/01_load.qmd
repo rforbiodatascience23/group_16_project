@@ -1,6 +1,7 @@
 This is the file that we used to load data
 
 ```{r}
+#| message: false
 library(tidyverse)
 
 ```
@@ -11,5 +12,4 @@ data <- read.csv("../_raw/processed.cleveland.data",header = FALSE)
 
 ```{r}
 readr::write_tsv(data, "../data/01_dat_load.tsv")
-
 ```

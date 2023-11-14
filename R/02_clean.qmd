@@ -3,6 +3,7 @@ library(tidyverse)
 ```
 
 ```{r}
+#| message: false
 data <- read_tsv("../data/01_dat_load.tsv")
 ```
 
