@@ -1,0 +1,41 @@
+```{r}
+library(tidyverse)
+```
+
+```{r}
+data <- read_tsv("../data/01_dat_load.tsv")
+```
+
+```{r}
+colnames(data) <- c('age','sex','cp','trestbps','chol','fbs','restecg','thalach','exang','oldpeak','slope','ca','thal','num') 
+```
+
+To clean data
+
+```{r}
+data <- data |> 
+  mutate(cp = case_when
+         (cp == '1' ~ 'typical angina',
+            cp == '2' ~ 'atypical angina',
+            cp == '3' ~ 'non-anginal pain',
+            cp == '4' ~ 'asymptomatic')) |> 
+  mutate(sex = case_when(
+    sex == '1' ~ 'male',
+    sex == '0' ~ 'female'
+  )) |> 
+  mutate(exang = case_when(
+    exang == '1' ~ 'yes',
+    exang == '0' ~ 'no'
+  )) |> 
+  mutate(slope = case_when(
+    slope == '1' ~ 'upsloping',
+    slope == '2' ~ 'flat',
+    slope == '3' ~ 'downsloping'
+  )) 
+```
+
+save the cleaned data
+
+```{r}
+readr::write_tsv(data, "../data/02_dat_clean.tsv")
+```
