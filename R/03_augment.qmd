@@ -1,4 +1,4 @@
-# Augmentation of the data
+# Augmentation of the data 1
 ```{r}
 library(tidyverse)
 ```
@@ -25,6 +25,5 @@ The new data is saved to the datafile
 ```{r}
 write_tsv(data, "../data/03_dat_aug.tsv")
 ```
-
 
 
