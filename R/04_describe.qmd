@@ -3,6 +3,7 @@
 Thew following section describes each variable of the dataset.
 
 ```{r}
+#| message: false
 library(tidyverse)
 ```
 
