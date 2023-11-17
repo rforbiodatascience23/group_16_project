@@ -1,4 +1,5 @@
 # Augmentation of the data
+
 ```{r}
 library(tidyverse)
 ```
@@ -10,10 +11,11 @@ data <- read_tsv("../data/02_dat_clean.tsv")
 ```
 
 ### Diagnosis
-Looking at the data, it can be seen that one of the categorical variables contains information on both presence and absence of heart disease, and the type of heart disease which was diagnosed. To do the analysis, a new variable was created, which only indicates presence or absence of heart disease. 
+
+Looking at the data, it can be seen that one of the categorical variables contains information on both presence and absence of heart disease, and the type of heart disease which was diagnosed. To do the analysis, a new variable was created, which only indicates presence or absence of heart disease.
 
 ```{r}
-data_aug <- data |> 
+data <- data |> 
   mutate(diagnosed = case_when(
     num == 0 ~ 'no',
     num >= 1 ~ 'yes'
@@ -22,9 +24,7 @@ data_aug <- data |>
 ```
 
 The new data is saved to the datafile
+
 ```{r}
 write_tsv(data, "../data/03_dat_aug.tsv")
 ```
-
-
-
