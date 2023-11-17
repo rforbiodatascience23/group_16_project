@@ -32,6 +32,20 @@ data <- data |>
     slope == '1' ~ 'upsloping',
     slope == '2' ~ 'flat',
     slope == '3' ~ 'downsloping'
+  )) |> 
+  mutate(fbs = case_when(
+    fbs == '1' ~ 'greater than 120mg/ml',
+    fbs == '0' ~ 'lower than 120mg/ml'
+  )) |> 
+  mutate(restecg = case_when(
+    restecg == '0' ~ 'normal',
+    restecg == '1' ~ 'ST-T wave abnormality',
+    restecg == '2' ~ 'left ventricular hypertrophy'
+  )) |> 
+  mutate(thal = case_when(
+    thal == '3.0' ~ 'normal',
+    thal == '6.0' ~ 'fixed detect',
+    thal == '7.0' ~ 'reversable defect'
   )) 
 ```
 
