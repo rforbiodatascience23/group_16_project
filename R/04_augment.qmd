@@ -1,0 +1,12 @@
+# Augmentation of the data
+
+### Diagnosis
+Looking at the data, it can be seen that one of the categorical variables contains information on both presence and absence of heart disease, and the type of heart disease which was diagnosed. To do the analysis, a new variable is created, which only indicated the presence or absence of heart disease. 
+
+```{r}
+
+
+
+
+```
+
