@@ -3,6 +3,7 @@
 ```{r}
 library(ggplot2)
 library(tidyverse)
+library(patchwork)
 ```
 
 ```{r}
@@ -10,9 +11,47 @@ data <- read_tsv("../data/03_dat_aug.tsv")
 ```
 
 ```{r}
-ggplot(data = data,
+p1 <- ggplot(data = data,
        aes( x = age,
             y = diagnosed,
             color = diagnosed))+
   geom_boxplot()
+p1
+```
+
+```{r}
+# plot of trestbps vs chol
+p2 <- ggplot(data = data,
+       aes(x = trestbps,
+           y = chol,
+           color = diagnosed))+
+  geom_point()+
+  geom_smooth(method = lm,se = FALSE)
+p2
+```
+
+```{r}
+# plot of trestbps vs thalach
+p3 <- ggplot(data = data,
+       aes(x = trestbps,
+           y = thalach,
+           color = diagnosed))+
+  geom_point()+
+  geom_smooth(method = lm,se = FALSE)
+p3
+```
+
+```{r}
+# plot of chol vs thalach
+p4 <- ggplot(data = data,
+       aes(x = chol,
+           y = thalach,
+           color = diagnosed))+
+  geom_point()+
+  geom_smooth(method = lm,se = FALSE)
+p4
+```
+
+```{r,fig.width=10,fig.height=10}
+p1/p2 / p3 / p4
 ```
