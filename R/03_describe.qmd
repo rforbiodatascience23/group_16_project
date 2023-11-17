@@ -1,1 +1,58 @@
 # Description of the data
+
+Thew following section describes each variable of the dataset.
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+# Loading the clean data
+data <- read_tsv("../data/02_dat_clean.tsv")
+data
+```
+
+There are 14 variables and 303 observations.
+
+### Categorical variables
+
+The cp variable describes the chest pain of each observation. There are four categories in total:
+
+-   Typical angina
+
+-   Atypical angina
+
+-   Non-anginal pain
+
+-   Asymptomatic
+
+Typical angina, also referred to as stable angina, is a pain which lasts a couple of minutes. It occurs in a patterns, and is induced by fx. stress or exercise.
+
+Atypical angina, also referred to as unstable angina, is different from typical angina by lasting longer and not occuring in patterns.
+
+@https://www.nhlbi.nih.gov/health/angina/types
+
+The following table shows the number of observations from each category.
+
+```{r}
+data |>
+  group_by(cp) |>
+  count()
+```
+
+The num variable is a scale of numbers from 0 to 4. 0 means that the patient has not been diagnosed with a heart disease, while 1-4 indicates the type of heart disease.
+
+
+### Numerical variables
+
+The trestbps variable contains information on tge resting blood pressure of each observation in mm Hg, on admission to the hospital. It ranges from 94 to 200 mm Hg, and has a mean of 131.7.
+
+The chol variable contains the serum cholestoral in mg/dl. It ranges from 126 to 564, and has a mean of 246.7.
+
+The thalach varibale contains the maximum heart rate achieved by each observation. It ranges from 71 to 202, and has a mean of 149.6.
+
+```{r}
+data |>
+  select(trestbps, chol, thalach) |>
+  summary()
+```
