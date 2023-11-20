@@ -13,9 +13,29 @@ data <- read_tsv("../data/02_dat_clean.tsv")
 data
 ```
 
-There are 14 variables and 303 observations.
+The data originally consisted of 14 variables with 303 observations.
 
 ### Categorical variables
+
+There are 9 categorial variables in the data:
+
+-   sex
+
+-   cp
+
+-   fbs
+
+-   restecg
+
+-   exang
+
+-   slope
+
+-   ca
+
+-   thal
+
+-   num
 
 The cp variable describes the chest pain of each observation. There are four categories in total:
 
@@ -43,14 +63,25 @@ data |>
 
 The num variable is a scale of numbers from 0 to 4. 0 means that the patient has not been diagnosed with a heart disease, while 1-4 indicates the type of heart disease.
 
+### Continuous variables
 
-### Numerical variables
+The data contains five continuous variables:
 
-The trestbps variable contains information on tge resting blood pressure of each observation in mm Hg, on admission to the hospital. It ranges from 94 to 200 mm Hg, and has a mean of 131.7.
+-   age
 
-The chol variable contains the serum cholestoral in mg/dl. It ranges from 126 to 564, and has a mean of 246.7.
+-   trestbps
 
-The thalach varibale contains the maximum heart rate achieved by each observation. It ranges from 71 to 202, and has a mean of 149.6.
+-   chol
+
+-   thalach
+
+-   oldpeak
+
+The trestbps variable contains information on the resting blood pressure of each observation in mm Hg, on admission to the hospital. It ranges from 94 to 200 mm Hg, and has a mean of 131.7.
+
+The chol variable contains information on the serum cholestoral of each observation in mg/dl. It ranges from 126 to 564, and has a mean of 246.7.
+
+The thalach varibale contains information on the maximum heart rate achieved by each observation. It ranges from 71 to 202, and has a mean of 149.6.
 
 ```{r}
 data |>

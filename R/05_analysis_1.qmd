@@ -7,10 +7,12 @@ library(patchwork)
 ```
 
 ```{r}
+#| message: false
 data <- read_tsv("../data/03_dat_aug.tsv")
 ```
 
 ```{r}
+#Box-plot
 p1 <- ggplot(data = data,
        aes( x = age,
             y = diagnosed,
@@ -24,9 +26,10 @@ p1
 p2 <- ggplot(data = data,
        aes(x = trestbps,
            y = chol,
-           color = diagnosed))+
-  geom_point()+
+           color = diagnosed)) +
+  geom_point() +
   geom_smooth(method = lm,se = FALSE)
+
 p2
 ```
 
@@ -54,4 +57,69 @@ p4
 
 ```{r,fig.width=10,fig.height=10}
 p1/p2 / p3 / p4
+```
+
+### Distribution between continuous variables
+
+```{r}
+#Plotting the disctribution of numerical variables, divided by diagnosis
+library(ggpubr)
+
+# Density-plot of age attribute
+density_p1 <- ggplot(data = data,
+       aes(x = age,
+           color = diagnosed,
+           fill = diagnosed)) +
+  geom_density(alpha = 0.5)
+
+# Density-plot of trestbps attribute
+density_p2 <- ggplot(data = data,
+       aes(x = trestbps,
+           color = diagnosed,
+           fill = diagnosed)) +
+  geom_density(alpha = 0.5)
+
+# Density-plot of chol attribute
+density_p3 <- ggplot(data = data,
+       aes(x = chol,
+           color = diagnosed,
+           fill = diagnosed)) +
+  geom_density(alpha = 0.5)
+
+# Density-plot of thalach attribute
+density_p4 <- ggplot(data = data,
+       aes(x = thalach,
+           color = diagnosed,
+           fill = diagnosed)) +
+  geom_density(alpha = 0.5)
+
+# All density plots
+ggarrange(density_p1, density_p2, density_p3, density_p4, ncol=2, nrow=2, common.legend = TRUE, legend="bottom")
+```
+The plots show that, out of the four variables included in the analysis, that 'age' and 'thalach' seem to be the best at separating diagnosed from non-diagnosed, as their peaks are in relatively different positions.
+
+
+```{r}
+#Scatterplot of age vs thalach (for analysis_2)
+ggplot(data = data,
+       aes(x = age,
+           y = thalach,
+           color = diagnosed,
+           fill = diagnosed)) +
+  geom_point() +
+  geom_smooth(method = lm,se = FALSE)
+
+```
+
+The scatter-plot tells us the 'thalach'-attribute is better at separating the diagnosed from non-diagnosed, when the patient is at a younger age.
+
+```{r}
+ggplot(data = data,
+       aes(x = age,
+           y = thalach,
+           color = sex,
+           fill = sex)) +
+  geom_point() +
+  facet_wrap(~ cp)
+
 ```
