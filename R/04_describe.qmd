@@ -1,6 +1,8 @@
 # Description of the data
 
-Thew following section describes each variable of the dataset.
+### Introduction 
+
+In this section, we'll take a closer look at various details about our heart disease dataset and provide a detailed explanation of the dataset.
 
 ```{r}
 #| message: false
