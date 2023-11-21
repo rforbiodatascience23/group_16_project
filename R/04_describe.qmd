@@ -1,8 +1,10 @@
 # Description of the data
 
-### Introduction 
+### Introduction
 
 In this section, we'll take a closer look at various details about our heart disease dataset and provide a detailed explanation of the dataset.
+
+### Loading the data
 
 ```{r}
 #| message: false
@@ -15,7 +17,9 @@ data <- read_tsv("../data/02_dat_clean.tsv")
 data
 ```
 
-The data originally consisted of 14 variables with 303 observations.
+### Dataset Overview
+
+After loading the dataset into R, it revealed 14 variables and 303 observations. It provides key information, including details about age, gender, and various aspects of heart health of certain patients. The 'goal' field indicates the presence of heart disease, ranging from 0 (no presence) to 4. Also, patient names and social security numbers were replaced with dummy values for privacy.
 
 ### Categorical variables
 
