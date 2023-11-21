@@ -4,7 +4,8 @@ library(tidyverse)
 
 ```{r}
 #| message: false
-data <- read_tsv("../data/01_dat_load.tsv")
+data <- read_tsv("../data/01_dat_load.tsv", na= c("", "NA", "N/A", "missing", "?"))
+data <- drop_na(data)
 ```
 
 ```{r}
@@ -43,9 +44,9 @@ data <- data |>
     restecg == '2' ~ 'left ventricular hypertrophy'
   )) |> 
   mutate(thal = case_when(
-    thal == '3.0' ~ 'normal',
-    thal == '6.0' ~ 'fixed detect',
-    thal == '7.0' ~ 'reversable defect'
+    thal == '3' ~ 'normal',
+    thal == '6' ~ 'fixed defect',
+    thal == '7' ~ 'reversable defect'
   )) 
 ```
 
