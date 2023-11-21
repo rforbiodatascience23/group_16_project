@@ -59,10 +59,30 @@ p4
 p1/p2 / p3 / p4
 ```
 
+## Getting an overview of the sample
+
+```{r}
+#Violin plot
+violin_plot <- ggplot(data = data,
+                      aes(x = age,
+                          y = diagnosed,
+                          color = diagnosed,
+                          fill = diagnosed)) +
+  geom_violin(alpha = 0.5) +
+  scale_fill_manual(values = c("darkgreen", "red")) +
+  scale_color_manual(values = c("darkgreen", "red"))
+
+violin_plot
+
+```
+The plot shows us there is an uneven distribution between the observations which are diagnosed and not diagnosed. The distribution of non-diagnosed patients is relatively even, while the distribution of diagnosed patients is larger around the age-group 55-60 years.
+
+
+
 ### Distribution between continuous variables
 
 ```{r}
-#Plotting the disctribution of numerical variables, divided by diagnosis
+#Plotting the distribution of numerical variables, divided by diagnosis
 library(ggpubr)
 
 # Density-plot of age attribute
@@ -70,56 +90,136 @@ density_p1 <- ggplot(data = data,
        aes(x = age,
            color = diagnosed,
            fill = diagnosed)) +
-  geom_density(alpha = 0.5)
+  geom_density(alpha = 0.4) +
+  scale_fill_manual(values = c("darkgreen", "red")) +
+  scale_color_manual(values = c("darkgreen", "red"))
 
 # Density-plot of trestbps attribute
 density_p2 <- ggplot(data = data,
        aes(x = trestbps,
            color = diagnosed,
            fill = diagnosed)) +
-  geom_density(alpha = 0.5)
+  geom_density(alpha = 0.4) +
+  scale_fill_manual(values = c("darkgreen", "red")) +
+  scale_color_manual(values = c("darkgreen", "red"))
 
 # Density-plot of chol attribute
 density_p3 <- ggplot(data = data,
        aes(x = chol,
            color = diagnosed,
            fill = diagnosed)) +
-  geom_density(alpha = 0.5)
+  geom_density(alpha = 0.4) +
+  scale_fill_manual(values = c("darkgreen", "red")) +
+  scale_color_manual(values = c("darkgreen", "red"))
 
 # Density-plot of thalach attribute
 density_p4 <- ggplot(data = data,
        aes(x = thalach,
            color = diagnosed,
            fill = diagnosed)) +
-  geom_density(alpha = 0.5)
+  geom_density(alpha = 0.4) +
+  scale_fill_manual(values = c("darkgreen", "red")) +
+  scale_color_manual(values = c("darkgreen", "red"))
 
 # All density plots
-ggarrange(density_p1, density_p2, density_p3, density_p4, ncol=2, nrow=2, common.legend = TRUE, legend="bottom")
+ggarrange(density_p1, density_p2, density_p3, density_p4, ncol=2, nrow=2, common.legend = TRUE, legend = "bottom")
 ```
 The plots show that, out of the four variables included in the analysis, that 'age' and 'thalach' seem to be the best at separating diagnosed from non-diagnosed, as their peaks are in relatively different positions.
 
+### Distribution of categorical variables
 
 ```{r}
-#Scatterplot of age vs thalach (for analysis_2)
-ggplot(data = data,
-       aes(x = age,
-           y = thalach,
+# Plotting the disctribution of categorical variables, divided by diagnosis
+
+# Bar-plot of cp attribute
+bar_p1 <- ggplot(data = data,
+       aes(y = cp,
            color = diagnosed,
            fill = diagnosed)) +
-  geom_point() +
-  geom_smooth(method = lm,se = FALSE)
+  geom_bar(alpha = 0.4,
+           position = "fill") +
+  scale_fill_manual(values = c("darkgreen", "red")) +
+  scale_color_manual(values = c("darkgreen", "red")) +
+  theme(axis.title.x = element_blank(),
+        axis.text.y = element_text(angle = 20, hjust = 1))
+
+# Bar-plot of thal attribute
+data_thal <- data |>
+  drop_na(thal)
+
+bar_p2 <- ggplot(data = data_thal,
+       aes(y = thal,
+           color = diagnosed,
+           fill = diagnosed)) +
+  geom_bar(alpha = 0.4,
+           position = "fill") +
+  scale_fill_manual(values = c("darkgreen", "red")) +
+  scale_color_manual(values = c("darkgreen", "red")) +
+  theme(axis.title.x = element_blank(),
+        axis.text.y = element_text(angle = 20, hjust = 1))
+
+# Bar-plot of fbs attribute
+bar_p3 <- ggplot(data = data,
+       aes(y = fbs,
+           color = diagnosed,
+           fill = diagnosed)) +
+  geom_bar(alpha = 0.4,
+           position = "fill") +
+  scale_fill_manual(values = c("darkgreen", "red")) +
+  scale_color_manual(values = c("darkgreen", "red")) +
+  theme(axis.title.x = element_blank(),
+        axis.text.y = element_text(angle = 20, hjust = 1))
+
+# Bar-plot of exang attribute
+bar_p4 <- ggplot(data = data,
+       aes(y = exang,
+           color = diagnosed,
+           fill = diagnosed)) +
+  geom_bar(alpha = 0.4,
+           position = "fill") +
+  scale_fill_manual(values = c("darkgreen", "red")) +
+  scale_color_manual(values = c("darkgreen", "red")) +
+  theme(axis.title.x = element_blank(),
+        axis.text.y = element_text(angle = 20, hjust = 1))
+
+# Bar-plot of restecg attribute
+bar_p5 <- ggplot(data = data,
+       aes(y = restecg,
+           color = diagnosed,
+           fill = diagnosed)) +
+  geom_bar(alpha = 0.4,
+           position = "fill") +
+  scale_fill_manual(values = c("darkgreen", "red")) +
+  scale_color_manual(values = c("darkgreen", "red")) +
+  theme(axis.title.x = element_blank(),
+        axis.text.y = element_text(angle = 20, hjust = 1))
+
+# Bar-plot of ca attribute
+bar_p6 <- ggplot(data = data,
+       aes(y = ca,
+           color = diagnosed,
+           fill = diagnosed)) +
+  geom_bar(alpha = 0.4,
+           position = "fill") +
+  scale_fill_manual(values = c("darkgreen", "red")) +
+  scale_color_manual(values = c("darkgreen", "red")) +
+  theme(axis.title.x = element_blank(),
+        axis.text.y= element_text(angle = 20, hjust = 1))
+
+# All bar plots
+ggarrange(bar_p1, bar_p2, bar_p3, bar_p4, bar_p5, bar_p6, ncol = 2, nrow = 3, common.legend = TRUE, legend = "bottom")
+
 
 ```
+The plots show us that the variables fbs and restecg are not the best at separating diagnosed on non-diagnosed patients, while cp, exang, thal, and ca do show separation between the two.
 
-The scatter-plot tells us the 'thalach'-attribute is better at separating the diagnosed from non-diagnosed, when the patient is at a younger age.
+### Slope and oldpeak
 
-```{r}
-ggplot(data = data,
-       aes(x = age,
-           y = thalach,
-           color = sex,
-           fill = sex)) +
-  geom_point() +
-  facet_wrap(~ cp)
 
-```
+
+
+
+
+
+
+
