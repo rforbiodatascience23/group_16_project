@@ -1,3 +1,7 @@
+---
+title: "00_all"
+---
+
 # 00_all
 
 ### This is our final Quarto Markdown document with all other documents embedded
@@ -5,6 +9,10 @@
 ## 01_load
 
 ```{r child  = "./01_load.qmd"}
+```
+
+```{r}
+rmarkdown::render("./00_all.qmd", output_format = "html_document", output_dir = "../results")
 ```
 
 ## 02_clean

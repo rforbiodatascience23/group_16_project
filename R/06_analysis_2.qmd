@@ -1,0 +1,28 @@
+```{r}
+p1 <- ggplot(
+  data = data,
+  aes(x = age,
+      y = diagnosed,
+      fill = diagnosed)) + 
+  geom_violin(alpha = 0.5) +
+  scale_fill_manual(values = c("darkgreen", "red")) +
+  labs(title = "Violin plot") +
+  facet_wrap(~sex)
+p1
+```
+
+```{r}
+p1 <- ggplot(data, 
+             aes(x = age, 
+                 y = chol, 
+                 color = thalach)) +
+  geom_point() +
+  facet_wrap(~sex) +
+  labs(title = "Comparison of Three Continuous Variables",
+       x = "Age",
+       y = "chol",
+       color = "max heart rate")
+
+p1
+```
+
