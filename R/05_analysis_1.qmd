@@ -168,3 +168,40 @@ ggarrange(bar_p1, bar_p2, bar_p3, bar_p4, bar_p5, bar_p6, ncol = 2, nrow = 3, co
 The plots show us that the variables fbs and restecg are not the best at separating diagnosed on non-diagnosed patients, while cp, exang, thal, and ca do show separation between the two.
 
 ### Slope and oldpeak
+
+```{r}
+ggplot(data, 
+       aes(x = slope, 
+           fill = diagnosed)) + 
+  geom_bar() +
+  scale_fill_manual(values = c("darkgreen", "red"))+
+  labs(title = "Boxplot of Slope by Diagnosis",
+       x = "Diagnosed",
+       y = "Slope",
+       fill = "Diagnosis Category") +
+  theme_minimal() +
+  theme(legend.position = "bottom",  
+        plot.title = element_text(hjust = 0.5),  
+        axis.title.x = element_text(face = "bold"), 
+        axis.title.y = element_text(face = "bold")) 
+```
+
+```{r}
+ggplot(data, 
+       aes(x = diagnosed, 
+           y = oldpeak, 
+           fill = diagnosed)) + 
+  geom_boxplot() +
+  scale_fill_manual(values = c("darkgreen", "red")) + 
+  labs(title = "Boxplot of Oldpeak by Diagnosis",
+       x = "Diagnosed",
+       y = "Oldpeak Value",
+       fill = "Diagnosis Category") +
+  theme_minimal() +  
+  theme(legend.position = "bottom",  
+        plot.title = element_text(hjust = 0.5), 
+        axis.title.x = element_text(face = "bold"), 
+        axis.title.y = element_text(face = "bold")) 
+```
+
+These two plots show that the patients are more likely to be diagnosed with heart diseases with higher oldpeak and abnormal slope such as flat and downsloping ST segment.
