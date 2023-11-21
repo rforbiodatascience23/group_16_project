@@ -25,9 +25,33 @@ After loading the dataset into R, it revealed 14 variables and 303 observations.
 
 The upcoming variable documentation consists of two different sub-parts. The documentation will be split into 'categorical variables' and 'continuous variables.' 'Categorical variables' contain a finite number of categories or distinct groups; for example, categorical predictors include gender, material type, and payment method. 'Continuous variables' are numeric variables with an infinite number of values between any two points, such as the length of a part or the date and time a payment is received.
 
-### Categorical variables
+#### Categorical variables
 
-### 
+We have 7 categorical variables in the data:
+
+| Variable Name | Description |
+|---------------|-------------|
+| sex           |             |
+| cp            |             |
+| fbs           |             |
+| restecg       |             |
+| exang         |             |
+| slope         |             |
+| thal          |             |
+
+### Continuous variables
+
+| Variable Name | Description |
+|---------------|-------------|
+|               |             |
+|               |             |
+|               |             |
+|               |             |
+|               |             |
+|               |             |
+|               |             |
+
+### Categorical variables
 
 There are 9 categorial variables in the data:
 
