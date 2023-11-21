@@ -43,7 +43,7 @@ We have 7 categorical variables in the data:
 
 | Variable Name | Description |
 |---------------|-------------|
-|               |             |
+| age           |             |
 |               |             |
 |               |             |
 |               |             |
