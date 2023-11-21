@@ -19,9 +19,15 @@ data
 
 ### Dataset Overview
 
-After loading the dataset into R, it revealed 14 variables and 303 observations. It provides key information, including details about age, gender, and various aspects of heart health of certain patients. The 'goal' field indicates the presence of heart disease, ranging from 0 (no presence) to 4. Also, patient names and social security numbers were replaced with dummy values for privacy.
+After loading the dataset into R, it revealed 14 variables and 303 observations. It provides key information, including details about age, gender, and various aspects of heart health of certain patients. The 'goal' field indicates the presence of heart disease, ranging from 0 (no presence) to 4. Also, patient names and social security numbers were replaced with dummy values for privacy. In the following, we will take a deeper look at the variable information to make the resulting interpretation of the dataset easier.
+
+### Variable Information
+
+The upcoming variable documentation consists of two different sub-parts. The documentation will be split into 'categorical variables' and 'continuous variables.' 'Categorical variables' contain a finite number of categories or distinct groups; for example, categorical predictors include gender, material type, and payment method. 'Continuous variables' are numeric variables with an infinite number of values between any two points, such as the length of a part or the date and time a payment is received.
 
 ### Categorical variables
+
+### 
 
 There are 9 categorial variables in the data:
 
