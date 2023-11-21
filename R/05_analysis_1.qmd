@@ -11,7 +11,6 @@ library(patchwork)
 data <- read_tsv("../data/03_dat_aug.tsv")
 ```
 
-
 ## Getting an overview of the sample
 
 ```{r}
@@ -21,16 +20,15 @@ violin_plot <- ggplot(data = data,
                           y = diagnosed,
                           color = diagnosed,
                           fill = diagnosed)) +
-  geom_violin(alpha = 0.5) +
+  geom_violin(alpha = 0.4) +
   scale_fill_manual(values = c("darkgreen", "red")) +
   scale_color_manual(values = c("darkgreen", "red"))
 
 violin_plot
 
 ```
+
 The plot shows us there is an uneven distribution between the observations which are diagnosed and not diagnosed. The distribution of non-diagnosed patients is relatively even, while the distribution of diagnosed patients is larger around the age-group 55-60 years.
-
-
 
 ### Distribution between continuous variables
 
@@ -77,6 +75,7 @@ density_p4 <- ggplot(data = data,
 # All density plots
 ggarrange(density_p1, density_p2, density_p3, density_p4, ncol=2, nrow=2, common.legend = TRUE, legend = "bottom")
 ```
+
 The plots show that, out of the four variables included in the analysis, that 'age' and 'thalach' seem to be the best at separating diagnosed from non-diagnosed, as their peaks are in relatively different positions.
 
 ### Distribution of categorical variables
@@ -164,7 +163,7 @@ ggarrange(bar_p1, bar_p2, bar_p3, bar_p4, bar_p5, bar_p6, ncol = 2, nrow = 3, co
 
 
 ```
+
 The plots show us that the variables fbs and restecg are not the best at separating diagnosed on non-diagnosed patients, while cp, exang, thal, and ca do show separation between the two.
 
 ### Slope and oldpeak
-
