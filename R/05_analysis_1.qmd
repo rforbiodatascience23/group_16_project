@@ -147,7 +147,8 @@ bar_p5 <- ggplot(data = data,
         axis.text.y = element_text(angle = 20, hjust = 1))
 
 # Bar-plot of ca attribute
-bar_p6 <- ggplot(data = data,
+bar_p6 <- ggplot(data = data |> 
+                   filter(ca !='?'),
        aes(y = ca,
            color = diagnosed,
            fill = diagnosed)) +
