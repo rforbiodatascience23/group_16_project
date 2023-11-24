@@ -1,10 +1,18 @@
-This is the file that we used to load data
+# Loading the data
+
+After selecting our dataset, we loaded and saved it into our data repository. This pivotal step sets the foundation for our analysis, allowing us to explore and draw insights from the abundance of information within the dataset.
+
+1.  Load in all important library's
 
 ```{r}
 #| message: false
 library(tidyverse)
 
 ```
+
+Afterwards, we read in the dataset 'processed.cleveland.data' from the directory \_raw. The \_raw repository contains all the raw files we uploaded from our chosen dataset.
+
+The code reads a dataset from the file 'processed.cleveland.data' and stores it in the variable 'data' in R. The 'header = FALSE' part indicates that the dataset doesn't have column headers.
 
 ```{r}
 data <- read.csv("../_raw/processed.cleveland.data",header = FALSE)

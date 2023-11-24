@@ -193,6 +193,8 @@ ggplot(data,
         axis.title.y = element_text(face = "bold")) 
 ```
 
+The plot shows us that downward and flat slopes could be good indicators of heart disease.
+
 ```{r}
 ggplot(data, 
        aes(x = diagnosed, 
@@ -214,7 +216,6 @@ ggplot(data,
 
 These two plots show that the patients are more likely to be diagnosed with heart diseases with higher oldpeak and abnormal slope such as flat and downsloping ST segment.
 
+### Results
 
-
-
-
+From the visualization of our variables, we have formed a general overview and understanding of our data. W
