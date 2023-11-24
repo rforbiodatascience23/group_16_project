@@ -3,6 +3,7 @@ format:
   revealjs:
     embed-resources: true
 ---
+
 # Analysis of data
 
 ```{r}
@@ -223,4 +224,4 @@ These two plots show that the patients are more likely to be diagnose with heart
 
 ### Results
 
-From the visualization, we have formed a general overview and understanding of our data. Out of five numerical variables
+From the visualization, we have formed a general overview and understanding of our data. We are now interested in variables as follows: the relationship of 'age', 'thalach - max heart rate', 'cp','thal','exang','ca','slope','oldpeak' with 'diagnose'. The further analysis will be conducted in the next file.
