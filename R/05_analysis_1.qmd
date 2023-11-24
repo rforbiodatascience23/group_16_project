@@ -96,10 +96,7 @@ bar_p1 <- ggplot(data = data,
         axis.text.y = element_text(angle = 20, hjust = 1))
 
 # Bar-plot of thal attribute
-data_thal <- data |>
-  drop_na(thal)
-
-bar_p2 <- ggplot(data = data_thal,
+bar_p2 <- ggplot(data = data,
        aes(y = thal,
            color = diagnosed,
            fill = diagnosed)) +
