@@ -32,9 +32,9 @@ ggplot(data,
            y = thalach, 
            color = diagnose)) +
   geom_point() +
-  labs(title = "Comparison of age and maximum heartrate",
+  labs(title = "Comparison of age and maximum heart rate",
        x = "Age",
-       y = "maximum heartrate",
+       y = "maximum heart rate",
        color = "diagnose")+
   scale_color_manual(values = c("darkgreen", "red")) +
   geom_smooth(method = 'lm',se = FALSE)+
