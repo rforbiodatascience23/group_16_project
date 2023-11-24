@@ -1,1 +1,19 @@
-
+```{r}
+p2 <- ggplot(data, 
+             aes(x = age, 
+                 y = chol, 
+                 color = thalach)) +
+  geom_point() +
+  facet_wrap(~sex) +
+  labs(title = "Comparison of Three Continuous Variables",
+       x = "Age",
+       y = "chol",
+       color = "max heart rate")+
+  scale_color_gradient2(low = 'white',mid = 'green',high = 'red')+
+  theme_minimal()+
+  theme(legend.position = "right",  
+        plot.title = element_text(hjust = 0.5),  
+        axis.title.x = element_text(face = "bold"), 
+        axis.title.y = element_text(face = "bold"))
+p2
+```
