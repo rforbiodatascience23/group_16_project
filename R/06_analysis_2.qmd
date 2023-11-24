@@ -7,6 +7,11 @@ p1 <- ggplot(
   geom_violin(alpha = 0.5) +
   scale_fill_manual(values = c("darkgreen", "red")) +
   labs(title = "Violin plot") +
+  theme_minimal()+
+  theme(legend.position = "right",  
+        plot.title = element_text(hjust = 0.5),  
+        axis.title.x = element_text(face = "bold"), 
+        axis.title.y = element_text(face = "bold"))+
   facet_wrap(~sex)
 p1
 ```
@@ -21,8 +26,12 @@ p1 <- ggplot(data,
   labs(title = "Comparison of Three Continuous Variables",
        x = "Age",
        y = "chol",
-       color = "max heart rate")
-
+       color = "max heart rate")+
+  scale_color_gradient2(low = 'white',mid = 'green',high = 'red')+
+  theme_minimal()+
+  theme(legend.position = "right",  
+        plot.title = element_text(hjust = 0.5),  
+        axis.title.x = element_text(face = "bold"), 
+        axis.title.y = element_text(face = "bold"))
 p1
 ```
-
