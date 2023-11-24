@@ -10,13 +10,13 @@ library(tidyverse)
 
 ```
 
-2.  Afterward, we read the dataset 'processed.cleveland.data' from the directory '\_raw' and store it in the variable 'data'. The '\_raw' repository contains all the raw files we uploaded from our chosen dataset.
+Afterwards, we read in the dataset 'processed.cleveland.data' from the directory \_raw. The \_raw repository contains all the raw files we uploaded from our chosen dataset.
+
+The code reads a dataset from the file 'processed.cleveland.data' and stores it in the variable 'data' in R. The 'header = FALSE' part indicates that the dataset doesn't have column headers.
 
 ```{r}
 data <- read.csv("../_raw/processed.cleveland.data",header = FALSE)
 ```
-
-3.  Then we write the contents of the data to a TSV file into the data directory.
 
 ```{r}
 readr::write_tsv(data, "../data/01_dat_load.tsv")
