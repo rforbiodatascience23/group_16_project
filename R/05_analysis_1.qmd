@@ -171,7 +171,7 @@ ggarrange(bar_p1, bar_p2, bar_p3, bar_p4, bar_p5, bar_p6, ncol = 2, nrow = 3, co
 
 ```
 
-The plots show us that the variables fbs and restecg are not the best at separating diagnosed on non-diagnosed patients, while cp, exang, thal, and ca do show separation between the two.
+The plots show us that the variables fbs and restecg are not the best at separating diagnosed from non-diagnosed patients, while cp, exang, thal, and ca do show separation between the two.
 
 ### Slope and oldpeak
 
@@ -180,12 +180,12 @@ ggplot(data,
        aes(x = slope,
            fill = diagnosed,
            color = diagnosed)) + 
-  geom_bar(alpha = 0.5) +
+  geom_bar(alpha = 0.4,
+           position = "fill") +
   scale_fill_manual(values = c("darkgreen", "red")) +
   scale_color_manual(values = c("darkgreen", "red")) + 
   labs(title = "Boxplot of Slope by Diagnosis",
-       x = "Slope",
-       y = "Count") +
+       x = "Slope") +
   theme_minimal() +
   theme(legend.position = "bottom",  
         plot.title = element_text(hjust = 0.5),  
@@ -199,7 +199,7 @@ ggplot(data,
            y = oldpeak, 
            color = diagnosed,
            fill = diagnosed)) + 
-  geom_boxplot(alpha = 0.5) +
+  geom_boxplot(alpha = 0.4) +
   scale_fill_manual(values = c("darkgreen", "red")) + 
   scale_color_manual(values = c("darkgreen", "red")) + 
   labs(title = "Boxplot of Oldpeak by Diagnosis",
