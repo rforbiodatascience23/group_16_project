@@ -218,4 +218,4 @@ These two plots show that the patients are more likely to be diagnosed with hear
 
 ### Results
 
-From the visualization of our variables, we have formed a general overview and understanding of our data. W
+From the visualization, we have formed a general overview and understanding of our data. Out of five numerical variables
