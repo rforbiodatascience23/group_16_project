@@ -58,6 +58,7 @@ ggplot(data = data |>
       y = oldpeak,
       color = diagnose))+
   geom_boxplot()+
+  scale_color_manual(values = c("darkgreen", "red")) + 
   theme_minimal()+
   theme(legend.position = "right",  
         plot.title = element_text(hjust = 0.5),  
@@ -65,3 +66,7 @@ ggplot(data = data |>
         axis.title.y = element_text(face = "bold"))+
   facet_wrap(~age_group)
 ```
+
+The 'oldpeak' value, associated with cardiac stress test results, tends to be higher in individuals diagnosed as 'sick' across all age groups and slope categories, suggesting a potential association with the underlying condition being diagnosed.
+
+The 'Senior' group exhibits greater variability in 'oldpeak' values among the 'sick', particularly in the 'downsloping' and 'flat' slope categories.
