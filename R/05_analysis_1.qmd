@@ -169,13 +169,14 @@ The plots show us that the variables fbs and restecg are not the best at separat
 ```{r}
 ggplot(data, 
        aes(x = slope,
-           fill = diagnosed)) + 
-  geom_bar() +
-  scale_fill_manual(values = c("darkgreen", "red"))+
+           fill = diagnosed,
+           color = diagnosed)) + 
+  geom_bar(alpha = 0.5) +
+  scale_fill_manual(values = c("darkgreen", "red")) +
+  scale_color_manual(values = c("darkgreen", "red")) + 
   labs(title = "Boxplot of Slope by Diagnosis",
-       x = "Diagnosed",
-       y = "Slope",
-       fill = "Diagnosis Category") +
+       x = "Slope",
+       y = "Count") +
   theme_minimal() +
   theme(legend.position = "bottom",  
         plot.title = element_text(hjust = 0.5),  
@@ -187,9 +188,11 @@ ggplot(data,
 ggplot(data, 
        aes(x = diagnosed, 
            y = oldpeak, 
+           color = diagnosed,
            fill = diagnosed)) + 
-  geom_boxplot() +
+  geom_boxplot(alpha = 0.5) +
   scale_fill_manual(values = c("darkgreen", "red")) + 
+  scale_color_manual(values = c("darkgreen", "red")) + 
   labs(title = "Boxplot of Oldpeak by Diagnosis",
        x = "Diagnosed",
        y = "Oldpeak Value",
@@ -221,7 +224,4 @@ ggplot(data,
         axis.title.x = element_text(face = "bold"), 
         axis.title.y = element_text(face = "bold")) 
 ```
-
-*Does not show a significant difference in distribution between different slopes
-
 
