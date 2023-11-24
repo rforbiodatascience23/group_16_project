@@ -15,16 +15,15 @@ data <- read_tsv("../data/03_dat_aug.tsv")
 
 ```{r}
 #Violin plot
-violin_plot <- ggplot(data = data,
+ggplot(data = data,
                       aes(x = age,
                           y = diagnosed,
                           color = diagnosed,
                           fill = diagnosed)) +
-  geom_violin(alpha = 0.5) +
+  geom_violin(alpha = 0.4) +
   scale_fill_manual(values = c("darkgreen", "red")) +
-  scale_color_manual(values = c("darkgreen", "red"))
-
-violin_plot
+  scale_color_manual(values = c("darkgreen", "red")) +
+  theme_minimal()
 
 ```
 
@@ -43,7 +42,8 @@ density_p1 <- ggplot(data = data,
            fill = diagnosed)) +
   geom_density(alpha = 0.4) +
   scale_fill_manual(values = c("darkgreen", "red")) +
-  scale_color_manual(values = c("darkgreen", "red"))
+  scale_color_manual(values = c("darkgreen", "red")) +
+  theme_minimal()
 
 # Density-plot of trestbps attribute
 density_p2 <- ggplot(data = data,
@@ -52,7 +52,8 @@ density_p2 <- ggplot(data = data,
            fill = diagnosed)) +
   geom_density(alpha = 0.4) +
   scale_fill_manual(values = c("darkgreen", "red")) +
-  scale_color_manual(values = c("darkgreen", "red"))
+  scale_color_manual(values = c("darkgreen", "red")) +
+  theme_minimal()
 
 # Density-plot of chol attribute
 density_p3 <- ggplot(data = data,
@@ -61,7 +62,8 @@ density_p3 <- ggplot(data = data,
            fill = diagnosed)) +
   geom_density(alpha = 0.4) +
   scale_fill_manual(values = c("darkgreen", "red")) +
-  scale_color_manual(values = c("darkgreen", "red"))
+  scale_color_manual(values = c("darkgreen", "red")) +
+  theme_minimal()
 
 # Density-plot of thalach attribute
 density_p4 <- ggplot(data = data,
@@ -70,7 +72,8 @@ density_p4 <- ggplot(data = data,
            fill = diagnosed)) +
   geom_density(alpha = 0.4) +
   scale_fill_manual(values = c("darkgreen", "red")) +
-  scale_color_manual(values = c("darkgreen", "red"))
+  scale_color_manual(values = c("darkgreen", "red")) +
+  theme_minimal()
 
 # All density plots
 ggarrange(density_p1, density_p2, density_p3, density_p4, ncol=2, nrow=2, common.legend = TRUE, legend = "bottom")
@@ -93,7 +96,8 @@ bar_p1 <- ggplot(data = data,
   scale_fill_manual(values = c("darkgreen", "red")) +
   scale_color_manual(values = c("darkgreen", "red")) +
   theme(axis.title.x = element_blank(),
-        axis.text.y = element_text(angle = 20, hjust = 1))
+        axis.text.y = element_text(angle = 20, hjust = 1)) +
+  theme_minimal()
 
 # Bar-plot of thal attribute
 bar_p2 <- ggplot(data = data,
@@ -105,7 +109,8 @@ bar_p2 <- ggplot(data = data,
   scale_fill_manual(values = c("darkgreen", "red")) +
   scale_color_manual(values = c("darkgreen", "red")) +
   theme(axis.title.x = element_blank(),
-        axis.text.y = element_text(angle = 20, hjust = 1))
+        axis.text.y = element_text(angle = 20, hjust = 1)) +
+  theme_minimal()
 
 # Bar-plot of fbs attribute
 bar_p3 <- ggplot(data = data,
@@ -117,7 +122,8 @@ bar_p3 <- ggplot(data = data,
   scale_fill_manual(values = c("darkgreen", "red")) +
   scale_color_manual(values = c("darkgreen", "red")) +
   theme(axis.title.x = element_blank(),
-        axis.text.y = element_text(angle = 20, hjust = 1))
+        axis.text.y = element_text(angle = 20, hjust = 1)) +
+  theme_minimal()
 
 # Bar-plot of exang attribute
 bar_p4 <- ggplot(data = data,
@@ -129,7 +135,8 @@ bar_p4 <- ggplot(data = data,
   scale_fill_manual(values = c("darkgreen", "red")) +
   scale_color_manual(values = c("darkgreen", "red")) +
   theme(axis.title.x = element_blank(),
-        axis.text.y = element_text(angle = 20, hjust = 1))
+        axis.text.y = element_text(angle = 20, hjust = 1)) +
+  theme_minimal()
 
 # Bar-plot of restecg attribute
 bar_p5 <- ggplot(data = data,
@@ -141,7 +148,8 @@ bar_p5 <- ggplot(data = data,
   scale_fill_manual(values = c("darkgreen", "red")) +
   scale_color_manual(values = c("darkgreen", "red")) +
   theme(axis.title.x = element_blank(),
-        axis.text.y = element_text(angle = 20, hjust = 1))
+        axis.text.y = element_text(angle = 20, hjust = 1)) +
+  theme_minimal()
 
 # Bar-plot of ca attribute
 bar_p6 <- ggplot(data = data |> 
@@ -154,7 +162,8 @@ bar_p6 <- ggplot(data = data |>
   scale_fill_manual(values = c("darkgreen", "red")) +
   scale_color_manual(values = c("darkgreen", "red")) +
   theme(axis.title.x = element_blank(),
-        axis.text.y= element_text(angle = 20, hjust = 1))
+        axis.text.y= element_text(angle = 20, hjust = 1)) +
+  theme_minimal()
 
 # All bar plots
 ggarrange(bar_p1, bar_p2, bar_p3, bar_p4, bar_p5, bar_p6, ncol = 2, nrow = 3, common.legend = TRUE, legend = "bottom")
