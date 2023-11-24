@@ -32,7 +32,7 @@ ggplot(data = data,
 
 ```
 
-The plot shows us there is an uneven distribution between the observations which are diagnose and not diagnose. The distribution of non-diagnose patients is relatively even, while the distribution of diagnose patients is larger around the age-group 55-60 years.
+The plot shows us there is an uneven distribution between the observations which are diagnosed and not diagnosed. The distribution of non-diagnose patients is relatively even, while the distribution of diagnosed patients is larger around the age-group 55-60 years.
 
 ### Distribution between continuous variables
 
@@ -176,7 +176,7 @@ ggarrange(bar_p1, bar_p2, bar_p3, bar_p4, bar_p5, bar_p6, ncol = 2, nrow = 3, co
 
 ```
 
-The plots show us that the variables fbs and restecg are not the best at separating diagnose from non-diagnose patients, while cp, exang, thal, and ca do show separation between the two.
+The plots show us that the variables fbs and restecg are not the best at separating diagnosed from undiagnosed patients, while cp, exang, thal, and ca do show separation between the two.
 
 ### Slope and oldpeak
 
