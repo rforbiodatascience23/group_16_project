@@ -4,6 +4,12 @@ format:
     embed-resources: true
 ---
 
+```{r}
+library("tidyverse")
+library("broom")
+```
+
+
 # Analysis of data
 
 Since our interested variables consist of both numerical and categorical types, we introduced a logistic regression model to fit our data for further analysis.
@@ -67,6 +73,45 @@ summary(model)
 # To get the odds ratios
 exp(coef(model))
 ```
+
+ATTEMPT TO REPLICATE HONGJINS WORK, BUT IN TIDY R:
+It works, but I have left the "old" model in so we can see if we got all we need from the tidyR attempt.
+```{r}
+data_log <- data |> 
+  mutate(
+    exang = as.factor(exang),
+    slope = as.factor(slope),
+    diagnose = as.factor(diagnose),
+    cp = as.factor(cp),
+    thal = as.factor(thal),
+    ca = as.factor(ca)
+  )
+
+model <- glm(diagnose ~ age + thalach + thal + exang + ca + slope + oldpeak + cp, 
+             data = data_log, family = binomial())
+```
+
+We utilize tidy(model) to tidy up the data and arrange it in a data frame with each row corresponding to a term in the model formula and each column being a statistical measurement, making each cell an easily interpreted value.
+
+```{r}
+tidy_model <- tidy(model)
+tidy_model |> 
+  print() |> 
+  pull(estimate) |> 
+  exp() |> 
+  print()
+```
+
+Finally we use glance(model) to provide a concise summary of the model
+
+```{r}
+glance_model <- glance(model)
+print(glance_model)
+```
+
+
+
+
 
 In summary, the model suggests that the type of chest pain (cp) greatly influences the likelihood of a heart disease diagnosis. The presence of a higher number of detectable vessels (thal) and higher ST depression (oldpeak) values are also associated with an increased likelihood of being diagnosed as sick.
 
