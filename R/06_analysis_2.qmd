@@ -3,8 +3,9 @@ format:
   revealjs:
     embed-resources: true
 ---
+
 ```{r}
-p2 <- ggplot(data, 
+p1 <- ggplot(data, 
              aes(x = age, 
                  y = chol, 
                  color = thalach)) +
@@ -20,5 +21,26 @@ p2 <- ggplot(data,
         plot.title = element_text(hjust = 0.5),  
         axis.title.x = element_text(face = "bold"), 
         axis.title.y = element_text(face = "bold"))
-p2
+p1
+```
+
+plot age vs thalach
+
+```{r}
+ggplot(data, 
+       aes(x = age, 
+           y = thalach, 
+           color = diagnose)) +
+  geom_point() +
+  labs(title = "Comparison of age and maximum heartrate",
+       x = "Age",
+       y = "maximum heartrate",
+       color = "diagnose")+
+  scale_color_manual(values = c("darkgreen", "red")) +
+  geom_smooth(method = 'lm',se = FALSE)+
+  theme_minimal()+
+  theme(legend.position = "right",  
+        plot.title = element_text(hjust = 0.5),  
+        axis.title.x = element_text(face = "bold"), 
+        axis.title.y = element_text(face = "bold"))
 ```
