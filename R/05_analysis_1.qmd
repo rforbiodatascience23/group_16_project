@@ -204,14 +204,17 @@ ggplot(data,
   scale_color_manual(values = c("darkgreen", "red")) + 
   labs(title = "Boxplot of Oldpeak by Diagnosis",
        x = "Diagnosed",
-       y = "Oldpeak Value",
-       fill = "Diagnosis Category") +
+       y = "Oldpeak Value") +
   theme_minimal() +  
-  theme(legend.position = "bottom",  
+  theme(legend.position = "none",
         plot.title = element_text(hjust = 0.5), 
         axis.title.x = element_text(face = "bold"), 
         axis.title.y = element_text(face = "bold")) 
 ```
 
 These two plots show that the patients are more likely to be diagnosed with heart diseases with higher oldpeak and abnormal slope such as flat and downsloping ST segment.
+
+
+
+
 
