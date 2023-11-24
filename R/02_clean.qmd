@@ -6,17 +6,49 @@
 library(tidyverse)
 ```
 
+2.  We read the TSV file containing our data into an R data frame, considering specific strings as missing values. To create a clean dataset, we removed all missing values.
+
 ```{r}
 #| message: false
 data <- read_tsv("../data/01_dat_load.tsv", na= c("", "NA", "N/A", "missing", "?"))
 data <- drop_na(data)
 ```
 
+3.  In the next step we assigned new column names to the **`data`** data frame, specifying names for each column.
+
+**Age**: Age of the individual
+
+**Gender (sex)**: 0 for female, 1 for male
+
+**Chest Pain (cp)**: Type of chest pain
+
+**Resting Blood Pressure (trestbps)**: Resting blood pressure
+
+**Serum Cholesterol (chol)**: Serum cholesterol level
+
+**Fasting Blood Sugar (fbs)**: Fasting blood sugar
+
+**Resting Electrocardiographic Results (restecg)**: Resting electrocardiographic results
+
+**Maximum Heart Rate Achieved (thalach)**: Maximum heart rate achieved
+
+**Exercise-Induced Angina (exang)**: 0 for no, 1 for yes
+
+**ST Depression Induced by Exercise (oldpeak)**: ST depression induced by exercise
+
+**Slope of the Peak Exercise (slope)**: Slope of the peak exercise
+
+**Number of Major Vessels Colored by Fluoroscopy (ca)**: Number of major vessels colored by fluoroscopy
+
+**Thalassemia Type (thal)**: Thalassemia type
+
+**Presence of Heart Disease (num)**: 0 for no, 1 for yes
+
 ```{r}
 colnames(data) <- c('age','sex','cp','trestbps','chol','fbs','restecg','thalach','exang','oldpeak','slope','ca','thal','num') 
 ```
 
-To clean data
+4.  Now, we clean the data by converting all relevant columns to more interpretable labels. This includes transforming numeric codes into descriptive terms for chest pain types, gender, exercise-induced angina, slope, fasting blood sugar levels, resting electrocardiographic results, and thalassemia. This not only enhances the readability of the dataset but also ensures that each column is expressed in a more meaningful and understandable format for downstream analysis. The detail description will be covered in the 'described.html' file.
 
 ```{r}
 data <- data |> 
@@ -54,7 +86,7 @@ data <- data |>
   )) 
 ```
 
-save the cleaned data
+5.  After cleaning the data we write the cleaned and transformed data frame (**`data`**) to a new TSV file named "02_dat_clean.tsv" in the "../data/" directory.
 
 ```{r}
 readr::write_tsv(data, "../data/02_dat_clean.tsv")

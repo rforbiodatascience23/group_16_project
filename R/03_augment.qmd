@@ -1,10 +1,12 @@
 # Augmentation of the data
 
-=======
-# Augmentation of the data 1
+1.  Load all important library's
+
 ```{r}
 library(tidyverse)
 ```
+
+2.  We load the the cleaned and transformed data from the TSV file "02_dat_clean.tsv" into an R data frame named **`data`**.
 
 ```{r}
 #| message: false
@@ -30,4 +32,3 @@ The new data is saved to the datafile
 ```{r}
 write_tsv(data, "../data/03_dat_aug.tsv")
 ```
-
