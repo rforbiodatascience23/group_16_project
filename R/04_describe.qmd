@@ -2,7 +2,7 @@
 
 ### Introduction
 
-In this section, we'll take a closer look at various details about our heart disease dataset and provide a detailed explanation of the dataset.
+In this section, we'll take a closer look at various details about our heart disease dataset and provide a detailed explanation of the variables.
 
 ### Loading the data
 
@@ -19,7 +19,7 @@ data
 
 ### Dataset Overview
 
-After loading the dataset into R, it revealed 14 variables and 303 observations. It provides key information, including details about age, gender, and various aspects of heart health of certain patients. The 'goal' field indicates the presence of heart disease, ranging from 0 (no presence) to 4. Also, patient names and social security numbers were replaced with dummy values for privacy. In the following, we will take a deeper look at the variable information to make the resulting interpretation of the dataset easier.
+After loading the dataset into R, it revealed 14 variables and 303 observations. It provides key information, including details about age, gender, and various aspects of heart health of certain patients. The 'num' variable indicates the presence of heart disease, ranging from 0 (no presence) to 4. During augmentation of the data, a new variable was added, which only indicates if a patient is diagnosed or not, called 'diagnosed'. Also, patient names and social security numbers were replaced with dummy values for privacy. In the following, we will take a deeper look at the variable information to make the resulting interpretation of the dataset easier.
 
 ### Variable Information
 
@@ -83,7 +83,11 @@ We have 7 categorical variables in the data:
 |               | -   **No:** Signifying the absence of heart disease.                                                                                                                                                                                                                                                                                                                                    |
 +---------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
+<<<<<<< HEAD
+### Numerical variables
+=======
 ### Continuous variables
+>>>>>>> 5ef153f86b7c8c0e6bff753a578607191a02c700
 
 +---------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Variable Name | Description                                                                                                                                                                                                                                                                                                                                                                                                |

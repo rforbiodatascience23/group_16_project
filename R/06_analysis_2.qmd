@@ -1,21 +1,5 @@
-```{r}
-p1 <- ggplot(
-  data = data,
-  aes(x = age,
-      y = diagnosed,
-      fill = diagnosed)) + 
-  geom_violin(alpha = 0.5) +
-  scale_fill_manual(values = c("darkgreen", "red")) +
-  labs(title = "Violin plot") +
-  theme_minimal()+
-  theme(legend.position = "right",  
-        plot.title = element_text(hjust = 0.5),  
-        axis.title.x = element_text(face = "bold"), 
-        axis.title.y = element_text(face = "bold"))+
-  facet_wrap(~sex)
-p1
-```
 
+<<<<<<< HEAD
 ```{r}
 p2 <- ggplot(data, 
              aes(x = age, 
@@ -35,3 +19,9 @@ p2 <- ggplot(data,
         axis.title.y = element_text(face = "bold"))
 p2
 ```
+=======
+
+
+
+
+>>>>>>> 338dae6b47e2d0144a863aa00ebb73a0e34a6cb5
