@@ -1,5 +1,7 @@
 ---
-title: "00_all"
+format:
+  revealjs:
+    embed-resources: true
 ---
 
 # 00_all
@@ -11,10 +13,46 @@ title: "00_all"
 ```{r child  = "./01_load.qmd"}
 ```
 
-```{r}
-rmarkdown::render("./00_all.qmd", output_format = "html_document", output_dir = "../results")
-```
-
 ## 02_clean
 
-## 03_describe
+```{r child  = "./02_clean.qmd"}
+```
+
+## 03_augment
+
+```{r child  = "./03_augment.qmd"}
+```
+
+## 04_describe
+
+```{r child  = "./04_describe.qmd"}
+```
+
+## 05_analysis_1
+
+```{r child  = "./05_analysis_1.qmd"}
+```
+
+## 06_analysis_2
+
+```{r child  = "./06_analysis_2.qmd"}
+```
+
+## Render all files
+
+The following code renders all quarto documents into html and put them into the results folder.
+
+```{r}
+filenames <- list.files('.')[-c(1, length(list.files('.')))]
+results_path <- '../results/'
+output_format <- 'html'
+for (filename in filenames) {
+  quarto::quarto_render(input = filename)
+  file.rename(from = paste(filename[1:(nchar(filename) - 3),
+                                    output_format]),
+            to = paste(results_path,
+                       paste(filename[1:(nchar(filename) - 3),
+                                    output_format])))
+}
+```
+
