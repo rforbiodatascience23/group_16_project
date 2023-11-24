@@ -25,9 +25,9 @@ Looking at the data, it can be seen that one of the categorical variables contai
 
 ```{r}
 data <- data |> 
-  mutate(diagnosed = case_when(
-    num == 0 ~ 'no',
-    num >= 1 ~ 'yes'
+  mutate(diagnose = case_when(
+    num == 0 ~ 'healthy',
+    num >= 1 ~ 'sick'
   ))
 
 ```

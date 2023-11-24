@@ -3,6 +3,7 @@ format:
   revealjs:
     embed-resources: true
 ---
+
 ```{r}
 library(tidyverse)
 ```

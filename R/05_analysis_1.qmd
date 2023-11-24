@@ -22,9 +22,9 @@ data <- read_tsv("../data/03_dat_aug.tsv")
 #Violin plot
 ggplot(data = data,
                       aes(x = age,
-                          y = diagnosed,
-                          color = diagnosed,
-                          fill = diagnosed)) +
+                          y = diagnose,
+                          color = diagnose,
+                          fill = diagnose)) +
   geom_violin(alpha = 0.4) +
   scale_fill_manual(values = c("darkgreen", "red")) +
   scale_color_manual(values = c("darkgreen", "red")) +
@@ -32,7 +32,7 @@ ggplot(data = data,
 
 ```
 
-The plot shows us there is an uneven distribution between the observations which are diagnosed and not diagnosed. The distribution of non-diagnosed patients is relatively even, while the distribution of diagnosed patients is larger around the age-group 55-60 years.
+The plot shows us there is an uneven distribution between the observations which are diagnose and not diagnose. The distribution of non-diagnose patients is relatively even, while the distribution of diagnose patients is larger around the age-group 55-60 years.
 
 ### Distribution between continuous variables
 
@@ -43,8 +43,8 @@ library(ggpubr)
 # Density-plot of age attribute
 density_p1 <- ggplot(data = data,
        aes(x = age,
-           color = diagnosed,
-           fill = diagnosed)) +
+           color = diagnose,
+           fill = diagnose)) +
   geom_density(alpha = 0.4) +
   scale_fill_manual(values = c("darkgreen", "red")) +
   scale_color_manual(values = c("darkgreen", "red")) +
@@ -53,8 +53,8 @@ density_p1 <- ggplot(data = data,
 # Density-plot of trestbps attribute
 density_p2 <- ggplot(data = data,
        aes(x = trestbps,
-           color = diagnosed,
-           fill = diagnosed)) +
+           color = diagnose,
+           fill = diagnose)) +
   geom_density(alpha = 0.4) +
   scale_fill_manual(values = c("darkgreen", "red")) +
   scale_color_manual(values = c("darkgreen", "red")) +
@@ -63,8 +63,8 @@ density_p2 <- ggplot(data = data,
 # Density-plot of chol attribute
 density_p3 <- ggplot(data = data,
        aes(x = chol,
-           color = diagnosed,
-           fill = diagnosed)) +
+           color = diagnose,
+           fill = diagnose)) +
   geom_density(alpha = 0.4) +
   scale_fill_manual(values = c("darkgreen", "red")) +
   scale_color_manual(values = c("darkgreen", "red")) +
@@ -73,8 +73,8 @@ density_p3 <- ggplot(data = data,
 # Density-plot of thalach attribute
 density_p4 <- ggplot(data = data,
        aes(x = thalach,
-           color = diagnosed,
-           fill = diagnosed)) +
+           color = diagnose,
+           fill = diagnose)) +
   geom_density(alpha = 0.4) +
   scale_fill_manual(values = c("darkgreen", "red")) +
   scale_color_manual(values = c("darkgreen", "red")) +
@@ -84,7 +84,7 @@ density_p4 <- ggplot(data = data,
 ggarrange(density_p1, density_p2, density_p3, density_p4, ncol=2, nrow=2, common.legend = TRUE, legend = "bottom")
 ```
 
-The plots show that, out of the four variables included in the analysis, that 'age' and 'thalach' seem to be the best at separating diagnosed from non-diagnosed, as their peaks are in relatively different positions.
+The plots show that, out of the four variables included in the analysis, that 'age' and 'thalach' seem to be the best at separating diagnose from non-diagnose, as their peaks are in relatively different positions.
 
 ### Distribution of categorical variables
 
@@ -94,8 +94,8 @@ The plots show that, out of the four variables included in the analysis, that 'a
 # Bar-plot of cp attribute
 bar_p1 <- ggplot(data = data,
        aes(y = cp,
-           color = diagnosed,
-           fill = diagnosed)) +
+           color = diagnose,
+           fill = diagnose)) +
   geom_bar(alpha = 0.4,
            position = "fill") +
   scale_fill_manual(values = c("darkgreen", "red")) +
@@ -107,8 +107,8 @@ bar_p1 <- ggplot(data = data,
 # Bar-plot of thal attribute
 bar_p2 <- ggplot(data = data,
        aes(y = thal,
-           color = diagnosed,
-           fill = diagnosed)) +
+           color = diagnose,
+           fill = diagnose)) +
   geom_bar(alpha = 0.4,
            position = "fill") +
   scale_fill_manual(values = c("darkgreen", "red")) +
@@ -120,8 +120,8 @@ bar_p2 <- ggplot(data = data,
 # Bar-plot of fbs attribute
 bar_p3 <- ggplot(data = data,
        aes(y = fbs,
-           color = diagnosed,
-           fill = diagnosed)) +
+           color = diagnose,
+           fill = diagnose)) +
   geom_bar(alpha = 0.4,
            position = "fill") +
   scale_fill_manual(values = c("darkgreen", "red")) +
@@ -133,8 +133,8 @@ bar_p3 <- ggplot(data = data,
 # Bar-plot of exang attribute
 bar_p4 <- ggplot(data = data,
        aes(y = exang,
-           color = diagnosed,
-           fill = diagnosed)) +
+           color = diagnose,
+           fill = diagnose)) +
   geom_bar(alpha = 0.4,
            position = "fill") +
   scale_fill_manual(values = c("darkgreen", "red")) +
@@ -146,8 +146,8 @@ bar_p4 <- ggplot(data = data,
 # Bar-plot of restecg attribute
 bar_p5 <- ggplot(data = data,
        aes(y = restecg,
-           color = diagnosed,
-           fill = diagnosed)) +
+           color = diagnose,
+           fill = diagnose)) +
   geom_bar(alpha = 0.4,
            position = "fill") +
   scale_fill_manual(values = c("darkgreen", "red")) +
@@ -160,8 +160,8 @@ bar_p5 <- ggplot(data = data,
 bar_p6 <- ggplot(data = data |> 
                    filter(ca !='?'),
        aes(y = ca,
-           color = diagnosed,
-           fill = diagnosed)) +
+           color = diagnose,
+           fill = diagnose)) +
   geom_bar(alpha = 0.4,
            position = "fill") +
   scale_fill_manual(values = c("darkgreen", "red")) +
@@ -176,15 +176,15 @@ ggarrange(bar_p1, bar_p2, bar_p3, bar_p4, bar_p5, bar_p6, ncol = 2, nrow = 3, co
 
 ```
 
-The plots show us that the variables fbs and restecg are not the best at separating diagnosed from non-diagnosed patients, while cp, exang, thal, and ca do show separation between the two.
+The plots show us that the variables fbs and restecg are not the best at separating diagnose from non-diagnose patients, while cp, exang, thal, and ca do show separation between the two.
 
 ### Slope and oldpeak
 
 ```{r}
 ggplot(data, 
        aes(x = slope,
-           fill = diagnosed,
-           color = diagnosed)) + 
+           fill = diagnose,
+           color = diagnose)) + 
   geom_bar(alpha = 0.4,
            position = "fill") +
   scale_fill_manual(values = c("darkgreen", "red")) +
@@ -202,15 +202,15 @@ The plot shows us that downward and flat slopes could be good indicators of hear
 
 ```{r}
 ggplot(data, 
-       aes(x = diagnosed, 
+       aes(x = diagnose, 
            y = oldpeak, 
-           color = diagnosed,
-           fill = diagnosed)) + 
+           color = diagnose,
+           fill = diagnose)) + 
   geom_boxplot(alpha = 0.4) +
   scale_fill_manual(values = c("darkgreen", "red")) + 
   scale_color_manual(values = c("darkgreen", "red")) + 
   labs(title = "Boxplot of Oldpeak by Diagnosis",
-       x = "Diagnosed",
+       x = "diagnose",
        y = "Oldpeak Value") +
   theme_minimal() +  
   theme(legend.position = "none",
@@ -219,7 +219,7 @@ ggplot(data,
         axis.title.y = element_text(face = "bold")) 
 ```
 
-These two plots show that the patients are more likely to be diagnosed with heart diseases with higher oldpeak and abnormal slope such as flat and downsloping ST segment.
+These two plots show that the patients are more likely to be diagnose with heart diseases with higher oldpeak and abnormal slope such as flat and downsloping ST segment.
 
 ### Results
 
