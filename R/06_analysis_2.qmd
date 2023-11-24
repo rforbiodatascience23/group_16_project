@@ -44,3 +44,24 @@ ggplot(data,
         axis.title.x = element_text(face = "bold"), 
         axis.title.y = element_text(face = "bold"))
 ```
+
+There appears to be a correlation between age and maximum heart rate for both healthy and sick individuals, with both experiencing a decrease in maximum heart rate as age increases. Healthy individuals tend to have a higher maximum heart rate compared to those classified as sick.
+
+```{r,fig.width=8}
+ggplot(data = data |> 
+  mutate(age_group = case_when(
+    age <= 40 ~ 'Young',
+    age > 40 & age <= 55 ~ 'Middle aged',
+    age > 55 ~ 'Senior' 
+  )),
+  aes(x = slope,
+      y = oldpeak,
+      color = diagnose))+
+  geom_boxplot()+
+  theme_minimal()+
+  theme(legend.position = "right",  
+        plot.title = element_text(hjust = 0.5),  
+        axis.title.x = element_text(face = "bold"), 
+        axis.title.y = element_text(face = "bold"))+
+  facet_wrap(~age_group)
+```
