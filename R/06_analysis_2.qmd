@@ -17,7 +17,7 @@ p1
 ```
 
 ```{r}
-p1 <- ggplot(data, 
+p2 <- ggplot(data, 
              aes(x = age, 
                  y = chol, 
                  color = thalach)) +
@@ -33,5 +33,5 @@ p1 <- ggplot(data,
         plot.title = element_text(hjust = 0.5),  
         axis.title.x = element_text(face = "bold"), 
         axis.title.y = element_text(face = "bold"))
-p1
+p2
 ```
