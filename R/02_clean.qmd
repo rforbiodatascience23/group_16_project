@@ -12,8 +12,8 @@ library(tidyverse)
 
 ```{r}
 #| message: false
-data <- read_tsv("../data/01_dat_load.tsv", na= c("", "NA", "N/A", "missing", "?"))
-data <- drop_na(data)
+data_r <- read_tsv("../data/01_dat_load.tsv", na= c("", "NA", "N/A", "missing", "?"))
+data_r <- drop_na(data_r)
 ```
 
 3.  In the next step we assigned new column names to the **`data`** data frame, specifying names for each column.
@@ -47,13 +47,13 @@ data <- drop_na(data)
 **Presence of Heart Disease (num)**: 0 for no, 1 for yes
 
 ```{r}
-colnames(data) <- c('age','sex','cp','trestbps','chol','fbs','restecg','thalach','exang','oldpeak','slope','ca','thal','num') 
+colnames(data_r) <- c('age','sex','cp','trestbps','chol','fbs','restecg','thalach','exang','oldpeak','slope','ca','thal','num') 
 ```
 
 4.  Now, we clean the data by converting all relevant columns to more interpretable labels. This includes transforming numeric codes into descriptive terms for chest pain types, gender, exercise-induced angina, slope, fasting blood sugar levels, resting electrocardiographic results, and thalassemia. This not only enhances the readability of the dataset but also ensures that each column is expressed in a more meaningful and understandable format for downstream analysis. The detail description will be covered in the 'described.html' file.
 
 ```{r}
-data <- data |> 
+data <- data_r |> 
   mutate(cp = case_when
          (cp == '1' ~ 'typical angina',
             cp == '2' ~ 'atypical angina',
@@ -92,4 +92,5 @@ data <- data |>
 
 ```{r}
 readr::write_tsv(data, "../data/02_dat_clean.tsv")
+readr::write_tsv(data_r, "../data/02_raw_clean.tsv")
 ```
