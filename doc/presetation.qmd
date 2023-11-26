@@ -1,0 +1,27 @@
+---
+title: "HeartScope: Predictive Analysis of Cardiovascular Health Data"
+author: "Group_16"
+format: revealjs
+editor: visual
+css: style.css
+---
+
+# Introduction
+
+Heart disease
+
+::: columns
+::: {.column width="50%"}
+:::
+
+::: {.column width="50%"}
+:::
+:::
+
+# Material and Methods
+
+# Results
+
+# Discussion
+
+# References
