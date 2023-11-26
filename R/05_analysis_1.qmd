@@ -23,16 +23,17 @@ data <- read_tsv("../data/03_dat_aug.tsv")
 
 ```{r}
 #Violin plot
-ggplot(data = data,
-       aes(x = age,
-           y = diagnose,
-           color = diagnose,
-           fill = diagnose)) +
+plot_1 <- ggplot(data = data,
+                 aes(x = age,
+                     y = diagnose,
+                     color = diagnose,
+                     fill = diagnose)) +
   geom_violin(alpha = 0.4) +
   scale_fill_manual(values = c("darkgreen", "red")) +
   scale_color_manual(values = c("darkgreen", "red")) +
   theme_minimal()
 
+ggsave(file = "../results/plot_1.png", plot_1, width = 8, height = 6, units = "in")
 ```
 
 The plot shows us there is an uneven distribution between the observations which are diagnosed and not diagnosed. The distribution of non-diagnose patients is relatively even, while the distribution of diagnosed patients is larger around the age-group 55-60 years.
@@ -54,20 +55,30 @@ density_p3 <- dens(data, "chol")
 # Density-plot of thalach attribute
 density_p4 <- dens(data, "thalach")
 
+# Density-plot of ca attribute
+density_p5 <- dens(data, "ca")
+
+# Density-plot of oldpeak attribute
+density_p6 <- dens(data, "oldpeak")
+
 # All density plots
-ggarrange(density_p1, density_p2, density_p3, density_p4, ncol=2, nrow=2, common.legend = TRUE, legend = "bottom")
+density_grid <- ggarrange(density_p1, density_p2, density_p3, density_p4, density_p5, density_p6, ncol=2, nrow=3, common.legend = TRUE, legend = "bottom")
+
+density_grid
+ggsave(file = "../results/plot_2.png", density_grid, width = 8, height = 6, units = "in")
+
 ```
 
 The plots show that, out of the four variables included in the analysis, that 'age' and 'thalach' seem to be the best at separating healthy and sick patients, as their peaks are in relatively different positions. To investigate this relationship, we're doing a linear model for each numerical variable.
 
-The data was elongated by inserting each numerical variable into one column, calles "numerical_variables".
+The data was elongated by inserting each numerical variable into one column, called "numerical_variables".
 
 ```{r}
 model_data <- data |>
-  select(diagnose, age, trestbps, chol, thalach, oldpeak) |>
+  select(diagnose, age, trestbps, chol, thalach, ca, oldpeak) |>
   mutate(diagnose = case_when(diagnose == "healthy" ~ 0,
                               diagnose == "sick" ~ 1)) |>
-  pivot_longer(cols = c(age, trestbps, chol, thalach, oldpeak),
+  pivot_longer(cols = c(age, trestbps, chol, thalach, ca, oldpeak),
                names_to = "numerical_variables",
                values_to = "numerical_value")
 
@@ -88,13 +99,15 @@ fitted_data <- model_data |>
                                             conf.int = TRUE,
                                             conf.level = 0.95))) |>
   unnest(linear_model_tidy) |>
-  filter(term == "diagnose") |> ###intercept?
+  filter(term == "diagnose") |>
   select(numerical_variables, p.value) |>
   mutate(is.significant = case_when(p.value <= 0.05 ~ "yes",
                                     p.value > 0.05 ~ "no"))
 
 fitted_data
 ```
+
+The linear models support that the 'chol' variable (cholesterol levels) is not significantly correlated to the diagnosis of a patient. Opposite from what was concluded from viewing the density plot, the 'trestbps' variable (resting blood pressure ) does show a correlation, though the p-value is higher for this variable compared to the remaining ones, 'age' and 'thalach' (maximum heart rate).
 
 ### Distribution of categorical variables
 
@@ -116,59 +129,18 @@ bar_p4 <- bar(data, "exang")
 # Bar-plot of restecg attribute
 bar_p5 <- bar(data, "restecg")
 
-# Bar-plot of ca attribute
-bar_p6 <- bar(data, "ca")
+# Bar-plot of slope attribute
+bar_p6 <- bar(data, "slope")
 
 # All bar plots
-ggarrange(bar_p1, bar_p2, bar_p3, bar_p4, bar_p5, bar_p6, ncol = 2, nrow = 3, common.legend = TRUE, legend = "bottom")
-
+bar_grid <- ggarrange(bar_p1, bar_p2, bar_p3, bar_p4, bar_p5, bar_p6, ncol = 2, nrow = 3, common.legend = TRUE, legend = "bottom")
+bar_grid
+ggsave(file = "../results/plot_3.png", bar_grid, width = 8, height = 6, units = "in")
 
 ```
 
 The plots show us that the variables fbs and restecg are not the best at separating diagnosed from undiagnosed patients, while cp, exang, thal, and ca do show separation between the two.
 
-### Slope and oldpeak
-
-```{r}
-ggplot(data, 
-       aes(x = slope,
-           fill = diagnose,
-           color = diagnose)) + 
-  geom_bar(alpha = 0.4,
-           position = "fill") +
-  scale_fill_manual(values = c("darkgreen", "red")) +
-  scale_color_manual(values = c("darkgreen", "red")) + 
-  labs(title = "Boxplot of Slope by Diagnosis",
-       x = "Slope") +
-  theme_minimal() +
-  theme(legend.position = "bottom",  
-        plot.title = element_text(hjust = 0.5),  
-        axis.title.x = element_text(face = "bold"), 
-        axis.title.y = element_text(face = "bold")) 
-```
-
-The plot shows us that downward and flat slopes could be good indicators of heart disease.
-
-```{r}
-ggplot(data, 
-       aes(x = diagnose, 
-           y = oldpeak, 
-           color = diagnose,
-           fill = diagnose)) + 
-  geom_boxplot(alpha = 0.4) +
-  scale_fill_manual(values = c("darkgreen", "red")) + 
-  scale_color_manual(values = c("darkgreen", "red")) + 
-  labs(title = "Boxplot of Oldpeak by Diagnosis",
-       x = "diagnose",
-       y = "Oldpeak Value") +
-  theme_minimal() +  
-  theme(legend.position = "none",
-        plot.title = element_text(hjust = 0.5), 
-        axis.title.x = element_text(face = "bold"), 
-        axis.title.y = element_text(face = "bold")) 
-```
-
-These two plots show that the patients are more likely to be diagnose with heart diseases with higher oldpeak and abnormal slope such as flat and downsloping ST segment.
 
 ### Results
 
