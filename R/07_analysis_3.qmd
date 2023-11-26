@@ -1,16 +1,18 @@
 ```{r}
 library(stats)
+library(ggplot2)
 ```
 
 ```{r}
 #| message: false
-data <- read_tsv("../data/02_raw_clean.tsv")
+data_r <- read_tsv("../data/03_raw_aug.tsv")
+data <- read_tsv("../data/03_dat_aug.tsv")
 ```
 
 ```{r}
-cont_var <- data[, c('age', 'trestbps', 'chol', 'thalach', 'oldpeak', 'ca')]
-bina_var <- data[, c('sex', 'exang', 'fbs', 'num')]
-cate_var <- data[, c('cp', 'slope', 'restecg', 'thal')]
+cont_var <- data_r[, c('age', 'trestbps', 'chol', 'thalach', 'oldpeak', 'ca')]
+bina_var <- data_r[, c('sex', 'exang', 'fbs', 'diagnose')]
+cate_var <- data_r[, c('cp', 'slope', 'restecg', 'thal', 'num')]
 
 cont_scale <- scale(cont_var, center = TRUE, scale = TRUE)
 bina_scale <- bina_var
@@ -22,6 +24,14 @@ combined_data <- cbind(cont_scale, bina_scale, cate_scale)
 pca_results <- prcomp(combined_data, center = TRUE, scale. = TRUE)
 
 summary(pca_results)
-plot(pca_results)
+```
+```{r}
+
+pca_data <- data.frame(PC1 = pca_results$x[, 1], PC2 = pca_results$x[, 2], Diagnose = as.factor(data$diagnose))
+
+ggplot(pca_data, aes(x = PC1, y = PC2, color = Diagnose)) +
+  scale_color_manual(values = c("darkgreen", "red")) +
+  geom_point(size = 3) + 
+  labs(title = "PCA Score Plot with Binary Variable Coloring")
 ```
 
