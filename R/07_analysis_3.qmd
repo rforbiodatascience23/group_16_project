@@ -43,7 +43,6 @@ By looking of the results of PCA, there are several take-aways.
 PC1 has the highest standard deviation, meaning it captures the highest amount of variance in the dataset at 18.5%. The first few PCs captures the most variance in the data, the proportion decreases the each subsequent PC, PC23 and PC24 capture effectively no variance in the dataset.
 
 ```{r}
-
 pca_data <- data.frame(PC1 = pca_results$x[, 1], PC2 = pca_results$x[, 2], Diagnose = as.factor(data$diagnose))
 
 ggplot(pca_data, aes(x = PC1, y = PC2, color = Diagnose)) +
