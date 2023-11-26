@@ -1,7 +1,6 @@
 ---
 format:
-  revealjs:
-    embed-resources: true
+  html: {}
 ---
 # Augmentation of the data
 
