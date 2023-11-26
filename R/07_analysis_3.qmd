@@ -45,10 +45,11 @@ PC1 has the highest standard deviation, meaning it captures the highest amount o
 ```{r}
 pca_data <- data.frame(PC1 = pca_results$x[, 1], PC2 = pca_results$x[, 2], Diagnose = as.factor(data$diagnose))
 
-ggplot(pca_data, aes(x = PC1, y = PC2, color = Diagnose)) +
+plot_6 <- ggplot(pca_data, aes(x = PC1, y = PC2, color = Diagnose)) +
   scale_color_manual(values = c("darkgreen", "red")) +
   geom_point(size = 3) + 
   labs(title = "PCA Score Plot with Binary Variable Coloring")
+ggsave(file = "../results/plot_6.png", plot_6, width = 8, height = 6, units = "in")
 ```
 
 To further analyse the data, a score plot is done for the PC1 and PC2, seperated by the binary variable "diagnose". It is observed that there is overlap between the "healthy" and "sick", meaning the first two PCs is not sufficient for disguising these two groups. The spread on the PC1 axis is wider than PC2, which correctly reflects the fact that PC1 captures higher variance in the dataset. Even though the separation of the groups is not clear, there are tendencies of clusters on each side of x = 0 for PC1.
