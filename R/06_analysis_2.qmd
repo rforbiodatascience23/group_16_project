@@ -17,7 +17,7 @@ data <- read_tsv("../data/03_dat_aug.tsv")
 ## Data visualization
 
 ```{r}
-plot_3 <- ggplot(data, aes(x = ca, fill = cp)) +
+plot_4 <- ggplot(data, aes(x = ca, fill = cp)) +
   geom_bar(position = "dodge") +
   facet_wrap(~ diagnose) +
   labs(title = "Distribution of Chest Pain Type (CP) by Number of Major Vessels Colored (CA)",
@@ -30,14 +30,14 @@ plot_3 <- ggplot(data, aes(x = ca, fill = cp)) +
     axis.title = element_text(size = 10, face = "bold"),
     legend.title = element_text(size = 10,face = 'bold')
   )
-plot_3
-ggsave(file = "../results/plot_3.png", plot_3, width = 8, height = 6, units = "in")
+plot_4
+ggsave(file = "../results/plot_4.png", plot_4, width = 8, height = 6, units = "in")
 ```
 
 Overall, the plot suggests a relationship between the number of colored major vessels, the type of chest pain experienced, and the health status (healthy or sick) of individuals. It implies that 'typical angina' and 'atypical angina' are more common among healthy individuals with fewer colored major vessels, whereas 'asymptomatic' is more common in the sick group, with the number of colored major vessels showing a varied distribution. This in short gives the picture that both asymptomatic chest pain and having colored major vessels are indicators of having heart disease.
 
 ```{r}
-plot_4 <- ggplot(data |> filter (cp=="asymptomatic"), 
+plot_5 <- ggplot(data |> filter (cp=="asymptomatic"), 
              aes(x = oldpeak, 
                  y = thalach, 
                  color = diagnose)) +
@@ -62,8 +62,8 @@ plot_4 <- ggplot(data |> filter (cp=="asymptomatic"),
         axis.title.x = element_text(face = "bold"), 
         axis.title.y = element_text(face = "bold")
         )
-plot_4
-ggsave(file = "../results/plot_4.png", plot_4, width = 8, height = 6, units = "in")
+plot_5
+ggsave(file = "../results/plot_5.png", plot_5, width = 8, height = 6, units = "in")
 ```
 
 From the horizontal bar charts in 05_analysis_1, we see that asymptomatic chest pain is highly linked to an individual being sick. To understand some of the underlying reasons for this, we decided to plot the ST depression against the max heart rate for patients experiencing the asymptomatic chest pain. As ST depression is usually linked to blood supply to the heart, a higher value combined with a lower than average max heart rate could imply that a patient is sick, which is exactly what we see in the plot above. In conclusion, for the people experiencing asymptomatic chest pain, we see an inverse correlation between maximum heart rate and their level of ST depression leading to the idea that these could be influential in predicting a patient to be sick.
@@ -87,7 +87,6 @@ model <- glm(diagnose ~ age + thalach + thal + exang + ca + slope + oldpeak + cp
              data = data_log, family = binomial())
 
 summary(model)
-# To get the odds ratios
 exp(coef(model))
 ```
 
@@ -110,13 +109,10 @@ print(glance_model)
 
 PCA
 
-From the analysis of our data, we have come realized that several different factors impact correlate with a patient having heart disease. CA is the number of vessels colored by flouroscopy, hinting towards a potential blockade in these vessels. In light of that, and by looking at the number of colored blood vessels stratified by chest pain type and health status, we discovered that having one or more blood vessels potentially blocked is a huge driving factor for being diagnosed with heart disease. Another takeaway from this plot is that the proportion of patients experiencing asymptomatic chest pain is much larger for the sick group than for the healthy group. 
+From the analysis of our data, we have come realized that several different factors impact correlate with a patient having heart disease. CA is the number of vessels colored by flouroscopy, hinting towards a potential blockade in these vessels. In light of that, and by looking at the number of colored blood vessels stratified by chest pain type and health status, we discovered that having one or more blood vessels potentially blocked is a huge driving factor for being diagnosed with heart disease. Another takeaway from this plot is that the proportion of patients experiencing asymptomatic chest pain is much larger for the sick group than for the healthy group.
 
-This prompted us to look into the relationship between the sick group and the people experiencing asymptomatic chest pain. In the next plot, we targeted both the relationship between maximum achieved heart rate and ST depression, and differentiating the group of people with asymptomatic chest pain from the sick group.
-As indicated in the plot, the correlation between ST depression and maximum heart rate is negative, signifying that people with a higher ST depression will generally have a lower maximum heart rate and the people that experience both will generally have a heart disease. Looking at the points, it's also clear that the healthy part of the group experiencing asymptomatic chest pain generally don't experience ST depression, further linking ST depression to being experiencing heart disease.
+This prompted us to look into the relationship between the sick group and the people experiencing asymptomatic chest pain. In the next plot, we targeted both the relationship between maximum achieved heart rate and ST depression, and differentiating the group of people with asymptomatic chest pain from the sick group. As indicated in the plot, the correlation between ST depression and maximum heart rate is negative, signifying that people with a higher ST depression will generally have a lower maximum heart rate and the people that experience both will generally have a heart disease. Looking at the points, it's also clear that the healthy part of the group experiencing asymptomatic chest pain generally don't experience ST depression, further linking ST depression to being experiencing heart disease.
 
 This finding goes well together with our logistic mode, which suggests that the type of chest pain (cp) greatly influences the likelihood of a heart disease diagnosis. Additionally, the presence of a higher number of detectable vessels (thal), higher number of major vessels colored by flourosopy (ca), and higher ST depression (oldpeak) values are also associated with a signifocant increase in the likelihood of being diagnosed as sick.
 
 # Conclusion
-
-
