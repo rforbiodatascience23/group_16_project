@@ -6,7 +6,6 @@ format:
 
 ```{r}
 library("tidyverse")
-library("broom")
 ```
 
 # Analysis of data
@@ -69,7 +68,7 @@ From the horizontal bar charts in 05_analysis_1, we see that asymptomatic chest 
 
 ## Logistic regression
 
-Since we have multiple categorical and numerical variables, and try to find correlations between the diagnosis of heart disease. We decided to introduce a logistic regression model to fit our model and also present a statistical analysis.
+Since we have multiple categorical and numerical variables, and try to find correlations between the diagnosis of heart disease. We decided to introduce a logistic regression model to fit our data and also present a statistical analysis.
 
 ```{r}
 data_log <- data |> 
@@ -106,6 +105,8 @@ print(glance_model)
 ```
 
 In summary, the model suggests that the type of chest pain (cp) greatly influences the likelihood of a heart disease diagnosis. The presence of a higher number of detectable vessels (thal), higher number of major vessels colored by flourosopy (ca), and higher ST depression (oldpeak) values are also associated with an increased likelihood of being diagnosed as sick.
+
+# Discussion
 
 # Conclusion
 
