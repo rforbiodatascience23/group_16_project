@@ -108,8 +108,6 @@ print(glance_model)
 
 # Discussion
 
-Linear model
-
 PCA
 
 From the analysis of our data, we have come realized that several different factors impact correlate with a patient having heart disease. CA is the number of vessels colored by flouroscopy, hinting towards a potential blockade in these vessels. In light of that, and by looking at the number of colored blood vessels stratified by chest pain type and health status, we discovered that having one or more blood vessels potentially blocked is a huge driving factor for being diagnosed with heart disease. Another takeaway from this plot is that the proportion of patients experiencing asymptomatic chest pain is much larger for the sick group than for the healthy group. 
