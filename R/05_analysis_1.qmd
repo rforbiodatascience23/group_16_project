@@ -143,46 +143,7 @@ The plots show us that the variables fbs and restecg are not the best at separat
 
 ### Slope and oldpeak
 
-```{r}
-ggplot(data, 
-       aes(x = slope,
-           fill = diagnose,
-           color = diagnose)) + 
-  geom_bar(alpha = 0.4,
-           position = "fill") +
-  scale_fill_manual(values = c("darkgreen", "red")) +
-  scale_color_manual(values = c("darkgreen", "red")) + 
-  labs(title = "Boxplot of Slope by Diagnosis",
-       x = "Slope") +
-  theme_minimal() +
-  theme(legend.position = "bottom",  
-        plot.title = element_text(hjust = 0.5),  
-        axis.title.x = element_text(face = "bold"), 
-        axis.title.y = element_text(face = "bold")) 
-```
 
-The plot shows us that downward and flat slopes could be good indicators of heart disease.
-
-```{r}
-ggplot(data, 
-       aes(x = diagnose, 
-           y = oldpeak, 
-           color = diagnose,
-           fill = diagnose)) + 
-  geom_boxplot(alpha = 0.4) +
-  scale_fill_manual(values = c("darkgreen", "red")) + 
-  scale_color_manual(values = c("darkgreen", "red")) + 
-  labs(title = "Boxplot of Oldpeak by Diagnosis",
-       x = "diagnose",
-       y = "Oldpeak Value") +
-  theme_minimal() +  
-  theme(legend.position = "none",
-        plot.title = element_text(hjust = 0.5), 
-        axis.title.x = element_text(face = "bold"), 
-        axis.title.y = element_text(face = "bold")) 
-```
-
-These two plots show that the patients are more likely to be diagnose with heart diseases with higher oldpeak and abnormal slope such as flat and downsloping ST segment.
 
 ### Results
 
