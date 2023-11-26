@@ -18,6 +18,7 @@ library(tidyverse)
 #| message: false
 # Loading the clean data
 data <- read_tsv("../data/02_dat_clean.tsv")
+data_r <- read_tsv("../data/02_raw_clean.tsv")
 ```
 
 ### Diagnosis
@@ -30,6 +31,11 @@ data <- data |>
     num == 0 ~ 'healthy',
     num >= 1 ~ 'sick'
   ))
+data_r <- data_r |> 
+  mutate(diagnose = case_when(
+    num == 0 ~ 0,
+    num >= 1 ~ 1
+  ))
 
 ```
 
@@ -37,4 +43,5 @@ The new data is saved to the datafile
 
 ```{r}
 write_tsv(data, "../data/03_dat_aug.tsv")
+write_tsv(data_r, "../data/03_raw_aug.tsv")
 ```
