@@ -141,9 +141,6 @@ ggsave(file = "../results/plot_3.png", bar_grid, width = 8, height = 6, units = 
 
 The plots show us that the variables fbs and restecg are not the best at separating diagnosed from undiagnosed patients, while cp, exang, thal, and ca do show separation between the two.
 
-### Slope and oldpeak
-
-
 
 ### Results
 
