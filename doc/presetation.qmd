@@ -1,14 +1,16 @@
 ---
 title: "HeartScope: Predictive Analysis of Cardiovascular Health Data"
 author: "Group_16"
-format: revealjs
+format:
+  revealjs: 
+    theme: serif
 editor: visual
 css: style.css
 ---
 
 ## Introduction
 
-::: {style="font-size: 0.8em"}
+::: {style="font-size: 0.7em"}
 The dataset consists of 303 observations and 14 variables in total. We have :
 
 -   7 categorical variables: sex, cp(chest pain type), fbs(fasting blood sugar exceeds 120 mg/dl or not ), restecg(resting electrocardiographic results), exang(presence of exercise-induced angina), slope(the slope of the peak exercise ST segment), thal(thallium stress test).
@@ -78,14 +80,14 @@ In summary, our study highlights the potential value of data analysis in enhanci
 
 ## References
 
-::: {style="font-size: 0.8em"}
+::: {style="font-size: 0.7em"}
 Janosi,Andras, Steinbrunn,William, Pfisterer,Matthias, and Detrano,Robert. (1988). Heart Disease. UCI Machine Learning Repository. https://doi.org/10.24432/C52P4X.
 
 Detrano, Robert C. et al. "International application of a new probability algorithm for the diagnosis of coronary artery disease." The American journal of cardiology 64 5 (1989): 304-10.
 
 Detrano R, Salcedo EE, Hobbs RE, Yiannikas J. Cardiac cinefluoroscopy as an inexpensive aid in the diagnosis of coronary artery disease. Am J Cardiol. 1986 May 1;57(13):1041-6. doi: 10.1016/0002-9149(86)90671-5. PMID: 3706156.
 
-Ayatollahi, Haleh et al. \"Predicting coronary artery disease: a comparison between two data mining algorithms.\" BMC Public Health 19 (2019): n. pag.
+Ayatollahi, Haleh et al. "Predicting coronary artery disease: a comparison between two data mining algorithms." BMC Public Health 19 (2019): n. pag.
 
 Longo D, Fauci A, Kasper D, Hauser S. Harrison's principles of internal medicine. 18th ed. New York: McGraw-Hill Professionals; 2011.
 :::
