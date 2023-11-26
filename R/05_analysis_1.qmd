@@ -23,16 +23,17 @@ data <- read_tsv("../data/03_dat_aug.tsv")
 
 ```{r}
 #Violin plot
-ggplot(data = data,
-       aes(x = age,
-           y = diagnose,
-           color = diagnose,
-           fill = diagnose)) +
+plot_1 <- ggplot(data = data,
+                 aes(x = age,
+                     y = diagnose,
+                     color = diagnose,
+                     fill = diagnose)) +
   geom_violin(alpha = 0.4) +
   scale_fill_manual(values = c("darkgreen", "red")) +
   scale_color_manual(values = c("darkgreen", "red")) +
   theme_minimal()
 
+ggsave(file = "../results/plot_1.png", plot_1, width = 8, height = 6, units = "in")
 ```
 
 The plot shows us there is an uneven distribution between the observations which are diagnosed and not diagnosed. The distribution of non-diagnose patients is relatively even, while the distribution of diagnosed patients is larger around the age-group 55-60 years.
@@ -55,7 +56,9 @@ density_p3 <- dens(data, "chol")
 density_p4 <- dens(data, "thalach")
 
 # All density plots
-ggarrange(density_p1, density_p2, density_p3, density_p4, ncol=2, nrow=2, common.legend = TRUE, legend = "bottom")
+density_grid <- ggarrange(density_p1, density_p2, density_p3, density_p4, ncol=2, nrow=2, common.legend = TRUE, legend = "bottom")
+density_grid
+ggsave(file = "../results/plot_2.png", density_grid, width = 8, height = 6, units = "in")
 ```
 
 The plots show that, out of the four variables included in the analysis, that 'age' and 'thalach' seem to be the best at separating diagnose from non-diagnose, as their peaks are in relatively different positions.
@@ -84,8 +87,9 @@ bar_p5 <- bar(data, "restecg")
 bar_p6 <- bar(data, "ca")
 
 # All bar plots
-ggarrange(bar_p1, bar_p2, bar_p3, bar_p4, bar_p5, bar_p6, ncol = 2, nrow = 3, common.legend = TRUE, legend = "bottom")
-
+bar_grid <- ggarrange(bar_p1, bar_p2, bar_p3, bar_p4, bar_p5, bar_p6, ncol = 2, nrow = 3, common.legend = TRUE, legend = "bottom")
+bar_grid
+ggsave(file = "../results/plot_3.png", bar_grid, width = 8, height = 6, units = "in")
 
 ```
 
