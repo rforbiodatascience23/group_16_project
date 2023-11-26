@@ -175,6 +175,9 @@ In the last plot labeled "ca", as the count increases from 0 to 3, there is an i
 
 ### Discussion
 
-From the visualization, we have formed a general overview and understanding of our data. We are now interested in variables as follows: the relationship of 'age', 'thalach - max heart rate', 'cp','thal','exang','ca','slope','oldpeak' with 'diagnose'. The further analysis will be conducted in the next file.
+From the visualization and linear models, we've formed a general understanding of our data, and the relationship between the diagnosis of a patient, and all other attributes. 
 
-From the models created between all numerical data and the diagnosis of a patient, a strong correlation was discovered for most variables, except serum cholesterol levels. This does not mean that the cholesteral level is an irrelevant attribute to consider for the diagnosis of a patient, but only that they are not linearly correlated. Out of all 6 variables, 'ca' showed the strongest correlation to the diagnosis of a patient.
+The numerical variables which showed the strongest linear correlation to the diagnosis, were 'ca', 'oldpeak', and 'thalach'. This result makes sense when comparing it to the density-plots, which also showed good separation between healthy and sick patients for these attributes. 
+
+Many of the categorial variables showed potential for separating healthy from sick patients, except for the fasting blood sugar ('fbs'), which was relatively equal for the two groups. One of the attributes which showed the best separation was chest pain ('cp'), which is an attribute that will be looked further into for the remaining analysis.
+
