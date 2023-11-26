@@ -20,6 +20,8 @@ The purpose of our analysis is to uncover key patterns and risk factors associat
 
 ## Material and Methods
 
+![](../results/plot_1.png){fig-align="center"}
+
 ### Work flow
 
 ## Results
