@@ -3,6 +3,7 @@ format:
   revealjs:
     embed-resources: true
 ---
+
 # Augmentation of the data
 
 1.  Load all important library's
