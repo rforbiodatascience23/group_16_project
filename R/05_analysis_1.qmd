@@ -24,10 +24,10 @@ data <- read_tsv("../data/03_dat_aug.tsv")
 ```{r}
 #Violin plot
 ggplot(data = data,
-                      aes(x = age,
-                          y = diagnose,
-                          color = diagnose,
-                          fill = diagnose)) +
+       aes(x = age,
+           y = diagnose,
+           color = diagnose,
+           fill = diagnose)) +
   geom_violin(alpha = 0.4) +
   scale_fill_manual(values = c("darkgreen", "red")) +
   scale_color_manual(values = c("darkgreen", "red")) +
