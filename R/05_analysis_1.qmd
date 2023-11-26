@@ -10,6 +10,8 @@ format:
 library(ggplot2)
 library(tidyverse)
 library(patchwork)
+library(ggpubr)
+source("99_proj_func.R")
 ```
 
 ```{r}
@@ -37,49 +39,21 @@ The plot shows us there is an uneven distribution between the observations which
 
 ### Distribution between continuous variables
 
+
 ```{r}
 #Plotting the distribution of numerical variables, divided by diagnosis
-library(ggpubr)
 
 # Density-plot of age attribute
-density_p1 <- ggplot(data = data,
-       aes(x = age,
-           color = diagnose,
-           fill = diagnose)) +
-  geom_density(alpha = 0.4) +
-  scale_fill_manual(values = c("darkgreen", "red")) +
-  scale_color_manual(values = c("darkgreen", "red")) +
-  theme_minimal()
+density_p1 <- dens(data, "age")
 
 # Density-plot of trestbps attribute
-density_p2 <- ggplot(data = data,
-       aes(x = trestbps,
-           color = diagnose,
-           fill = diagnose)) +
-  geom_density(alpha = 0.4) +
-  scale_fill_manual(values = c("darkgreen", "red")) +
-  scale_color_manual(values = c("darkgreen", "red")) +
-  theme_minimal()
+density_p2 <- dens(data, "trestbps")
 
 # Density-plot of chol attribute
-density_p3 <- ggplot(data = data,
-       aes(x = chol,
-           color = diagnose,
-           fill = diagnose)) +
-  geom_density(alpha = 0.4) +
-  scale_fill_manual(values = c("darkgreen", "red")) +
-  scale_color_manual(values = c("darkgreen", "red")) +
-  theme_minimal()
+density_p3 <- dens(data, "chol")
 
 # Density-plot of thalach attribute
-density_p4 <- ggplot(data = data,
-       aes(x = thalach,
-           color = diagnose,
-           fill = diagnose)) +
-  geom_density(alpha = 0.4) +
-  scale_fill_manual(values = c("darkgreen", "red")) +
-  scale_color_manual(values = c("darkgreen", "red")) +
-  theme_minimal()
+density_p4 <- dens(data, "thalach")
 
 # All density plots
 ggarrange(density_p1, density_p2, density_p3, density_p4, ncol=2, nrow=2, common.legend = TRUE, legend = "bottom")
@@ -93,83 +67,22 @@ The plots show that, out of the four variables included in the analysis, that 'a
 # Plotting the disctribution of categorical variables, divided by diagnosis
 
 # Bar-plot of cp attribute
-bar_p1 <- ggplot(data = data,
-       aes(y = cp,
-           color = diagnose,
-           fill = diagnose)) +
-  geom_bar(alpha = 0.4,
-           position = "fill") +
-  scale_fill_manual(values = c("darkgreen", "red")) +
-  scale_color_manual(values = c("darkgreen", "red")) +
-  theme(axis.title.x = element_blank(),
-        axis.text.y = element_text(angle = 20, hjust = 1)) +
-  theme_minimal()
+bar_p1 <- bar(data, "cp")
 
 # Bar-plot of thal attribute
-bar_p2 <- ggplot(data = data,
-       aes(y = thal,
-           color = diagnose,
-           fill = diagnose)) +
-  geom_bar(alpha = 0.4,
-           position = "fill") +
-  scale_fill_manual(values = c("darkgreen", "red")) +
-  scale_color_manual(values = c("darkgreen", "red")) +
-  theme(axis.title.x = element_blank(),
-        axis.text.y = element_text(angle = 20, hjust = 1)) +
-  theme_minimal()
+bar_p2 <- bar(data, "thal")
 
 # Bar-plot of fbs attribute
-bar_p3 <- ggplot(data = data,
-       aes(y = fbs,
-           color = diagnose,
-           fill = diagnose)) +
-  geom_bar(alpha = 0.4,
-           position = "fill") +
-  scale_fill_manual(values = c("darkgreen", "red")) +
-  scale_color_manual(values = c("darkgreen", "red")) +
-  theme(axis.title.x = element_blank(),
-        axis.text.y = element_text(angle = 20, hjust = 1)) +
-  theme_minimal()
+bar_p3 <- bar(data, "fbs")
 
 # Bar-plot of exang attribute
-bar_p4 <- ggplot(data = data,
-       aes(y = exang,
-           color = diagnose,
-           fill = diagnose)) +
-  geom_bar(alpha = 0.4,
-           position = "fill") +
-  scale_fill_manual(values = c("darkgreen", "red")) +
-  scale_color_manual(values = c("darkgreen", "red")) +
-  theme(axis.title.x = element_blank(),
-        axis.text.y = element_text(angle = 20, hjust = 1)) +
-  theme_minimal()
+bar_p4 <- bar(data, "exang")
 
 # Bar-plot of restecg attribute
-bar_p5 <- ggplot(data = data,
-       aes(y = restecg,
-           color = diagnose,
-           fill = diagnose)) +
-  geom_bar(alpha = 0.4,
-           position = "fill") +
-  scale_fill_manual(values = c("darkgreen", "red")) +
-  scale_color_manual(values = c("darkgreen", "red")) +
-  theme(axis.title.x = element_blank(),
-        axis.text.y = element_text(angle = 20, hjust = 1)) +
-  theme_minimal()
+bar_p5 <- bar(data, "restecg")
 
 # Bar-plot of ca attribute
-bar_p6 <- ggplot(data = data |> 
-                   filter(ca !='?'),
-       aes(y = ca,
-           color = diagnose,
-           fill = diagnose)) +
-  geom_bar(alpha = 0.4,
-           position = "fill") +
-  scale_fill_manual(values = c("darkgreen", "red")) +
-  scale_color_manual(values = c("darkgreen", "red")) +
-  theme(axis.title.x = element_blank(),
-        axis.text.y= element_text(angle = 20, hjust = 1)) +
-  theme_minimal()
+bar_p6 <- bar(data, "ca")
 
 # All bar plots
 ggarrange(bar_p1, bar_p2, bar_p3, bar_p4, bar_p5, bar_p6, ncol = 2, nrow = 3, common.legend = TRUE, legend = "bottom")
