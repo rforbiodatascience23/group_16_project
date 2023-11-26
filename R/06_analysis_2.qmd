@@ -109,7 +109,7 @@ print(glance_model)
 
 # Discussion
 
-Linear model
+From the models created between all numerical data and the diagnosis of a patient, a strong correlation was discovered for most variables, except serum cholesterol levels. This does not mean that the cholesteral level is an irrelevant attribute to consider for the diagnosis of a patient, but only that they are not linearly correlated. Out of all 6 variables, 'ca' showed the strongest correlation to the diagnosis of a patient.
 
 PCA
 
