@@ -21,7 +21,7 @@ Afterwards, we read in the dataset 'processed.cleveland.data' from the directory
 The code reads a dataset from the file 'processed.cleveland.data' and stores it in the variable 'data' in R. The 'header = FALSE' part indicates that the dataset doesn't have column headers.
 
 ```{r}
-data_r <- read.csv("../_raw/processed.cleveland.data",header = FALSE)
+data <- read.csv("../_raw/processed.cleveland.data",header = FALSE)
 ```
 
 ```{r}
