@@ -5,6 +5,9 @@ format:
 ---
 
 # 00_all
+```{r}
+library(knitr)
+```
 
 ### This is our final Quarto Markdown document with all other documents embedded
 

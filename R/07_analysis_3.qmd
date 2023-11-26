@@ -1,0 +1,27 @@
+```{r}
+library(stats)
+```
+
+```{r}
+#| message: false
+data <- read_tsv("../data/02_raw_clean.tsv")
+```
+
+```{r}
+cont_var <- data[, c('age', 'trestbps', 'chol', 'thalach', 'oldpeak', 'ca')]
+bina_var <- data[, c('sex', 'exang', 'fbs', 'num')]
+cate_var <- data[, c('cp', 'slope', 'restecg', 'thal')]
+
+cont_scale <- scale(cont_var, center = TRUE, scale = TRUE)
+bina_scale <- bina_var
+cate_matrix <- model.matrix(~ 0 + cp + slope + restecg + thal,
+                            data = cate_var)
+cate_scale <- as.data.frame(cate_matrix)
+
+combined_data <- cbind(cont_scale, bina_scale, cate_scale)
+pca_results <- prcomp(combined_data, center = TRUE, scale. = TRUE)
+
+summary(pca_results)
+plot(pca_results)
+```
+
