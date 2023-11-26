@@ -9,7 +9,6 @@ library("tidyverse")
 library("broom")
 ```
 
-
 # Analysis of data
 
 Since our interested variables consist of both numerical and categorical types, we introduced a logistic regression model to fit our data for further analysis.
@@ -54,28 +53,8 @@ From the horizontal bar charts in 05_analysis_1, we see that asymptomatic chest 
 
 ## Logistic regression
 
-```{r}
-data_log <- data
-# Convert categorical variables to factors
-data_log$exang <- as.factor(data$exang)
-data_log$slope <- as.factor(data$slope)
-data_log$diagnose <- as.factor(data$diagnose)
-data_log$cp <- as.factor(data$cp)
-data_log$thal <- as.factor(data$thal)
-data_log$ca <- as.factor(data$ca)
-# Fit the logistic regression model
-model <- glm(diagnose ~ age + thalach + thal + exang + ca + slope + oldpeak + cp, 
-             data = data_log, family = binomial())
+Since we have multiple categorical and numerical variables, and try to find correlations between the diagnosis of heart disease. We decided to introduce a logistic regression model to fit our model and also present a statistical analysis.
 
-# Summary of the model to view the coefficients
-summary(model)
-
-# To get the odds ratios
-exp(coef(model))
-```
-
-ATTEMPT TO REPLICATE HONGJINS WORK, BUT IN TIDY R:
-It works, but I have left the "old" model in so we can see if we got all we need from the tidyR attempt.
 ```{r}
 data_log <- data |> 
   mutate(
@@ -89,6 +68,10 @@ data_log <- data |>
 
 model <- glm(diagnose ~ age + thalach + thal + exang + ca + slope + oldpeak + cp, 
              data = data_log, family = binomial())
+
+summary(model)
+# To get the odds ratios
+exp(coef(model))
 ```
 
 We utilize tidy(model) to tidy up the data and arrange it in a data frame with each row corresponding to a term in the model formula and each column being a statistical measurement, making each cell an easily interpreted value.
@@ -96,10 +79,7 @@ We utilize tidy(model) to tidy up the data and arrange it in a data frame with e
 ```{r}
 tidy_model <- tidy(model)
 tidy_model |> 
-  print() |> 
-  pull(estimate) |> 
-  exp() |> 
-  print()
+  select(term,p.value)
 ```
 
 Finally we use glance(model) to provide a concise summary of the model
@@ -108,10 +88,6 @@ Finally we use glance(model) to provide a concise summary of the model
 glance_model <- glance(model)
 print(glance_model)
 ```
-
-
-
-
 
 In summary, the model suggests that the type of chest pain (cp) greatly influences the likelihood of a heart disease diagnosis. The presence of a higher number of detectable vessels (thal) and higher ST depression (oldpeak) values are also associated with an increased likelihood of being diagnosed as sick.
 
