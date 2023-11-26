@@ -51,6 +51,24 @@ p1
 
 From the horizontal bar charts in 05_analysis_1, we see that asymptomatic chest pain is highly linked to an individual being sick. To understand some of the underlying reasons for this, we decided to plot the ST depression against the max heart rate for patients experiencing the asymptomatic chest pain. As ST depression is usually linked to blood supply to the heart, a higher value combined with a lower than average max heart rate could imply that a patient is sick, which is exactly what we see in the plot above. In conclusion, for the people experiencing asymptomatic chest pain, we see an inverse correlation between maximum heart rate and their level of ST depression leading to the idea that these could be influential in predicting a patient to be sick.
 
+```{r}
+ggplot(data, aes(x = ca, fill = cp)) +
+  geom_bar(position = "dodge") +
+  facet_wrap(~ diagnose) +
+  labs(title = "Distribution of Chest Pain Type (CP) by Number of Major Vessels Colored (CA)",
+       x = "Number of colored major vessles", 
+       y = "Count", 
+       fill = "Chest pain type") +
+  theme_minimal(base_size = 10)+
+  theme(
+    plot.title = element_text(size = 10, face = "bold", hjust = 0.5),
+    axis.title = element_text(size = 10, face = "bold"),
+    legend.title = element_text(size = 10,face = 'bold')
+  )
+```
+
+Overall, the plot suggests a relationship between the number of colored major vessels, the type of chest pain experienced, and the health status (healthy or sick) of individuals. It implies that 'typical angina' is more common among healthy individuals with fewer colored major vessels, whereas 'asymptomatic' and 'atypical angina' are more common in the sick group, with the number of colored major vessels showing a varied distribution.
+
 ## Logistic regression
 
 Since we have multiple categorical and numerical variables, and try to find correlations between the diagnosis of heart disease. We decided to introduce a logistic regression model to fit our model and also present a statistical analysis.
@@ -89,6 +107,6 @@ glance_model <- glance(model)
 print(glance_model)
 ```
 
-In summary, the model suggests that the type of chest pain (cp) greatly influences the likelihood of a heart disease diagnosis. The presence of a higher number of detectable vessels (thal) and higher ST depression (oldpeak) values are also associated with an increased likelihood of being diagnosed as sick.
+In summary, the model suggests that the type of chest pain (cp) greatly influences the likelihood of a heart disease diagnosis. The presence of a higher number of detectable vessels (thal), higher number of major vessels colored by flourosopy (ca), and higher ST depression (oldpeak) values are also associated with an increased likelihood of being diagnosed as sick.
 
 # Conclusion

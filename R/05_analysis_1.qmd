@@ -39,7 +39,6 @@ The plot shows us there is an uneven distribution between the observations which
 
 ### Distribution between continuous variables
 
-
 ```{r}
 #Plotting the distribution of numerical variables, divided by diagnosis
 
