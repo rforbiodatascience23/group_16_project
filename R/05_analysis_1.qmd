@@ -6,6 +6,8 @@ format:
 
 # Analysis of data
 
+1.  Load all important library's
+
 ```{r}
 library(ggplot2)
 library(tidyverse)
@@ -14,12 +16,18 @@ library(ggpubr)
 source("99_proj_func.R")
 ```
 
+2.  For the analysis of the data we write the cleaned and transformed data frame (**`data`**) to a new TSV file named "03_dat_clean.tsv" in the "../data/" directory.
+
 ```{r}
 #| message: false
 data <- read_tsv("../data/03_dat_aug.tsv")
 ```
 
-## Getting an overview of the sample
+## Data Overview
+
+### **Exploring Age Distribution by Diagnosis**
+
+First, we generate a violin plot graphing the diagnosis of being healthy or sick against age. Which provides a quick and insightful snapshot for initial dataset exploration.
 
 ```{r}
 #Violin plot
@@ -36,9 +44,11 @@ plot_1 <- ggplot(data = data,
 ggsave(file = "../results/plot_1.png", plot_1, width = 8, height = 6, units = "in")
 ```
 
-The plot shows us there is an uneven distribution between the observations which are diagnosed and not diagnosed. The distribution of non-diagnose patients is relatively even, while the distribution of diagnosed patients is larger around the age-group 55-60 years.
+The x-axis represents the age of an individual, ranging from 30 to 70. The y-axis shows the different diagnoses related to heart disease, labeled as "sick" at the top and "healthy" at the bottom. Each diagnosis is visually differentiated by two colors. The "green" color represents a positive health condition ("healthy"), while the "red" color marks a negative health condition ("sick"). On one hand, the red curve is broader, peaking around the age of 50. On the other hand, the green curve is narrower, also peaking around the age of 50 but with a lower amplitude compared to the red curve. In summary the plot shows us that the older the patients are, more likely they are diagnosed by a heart disease. Most diagnosed individuals were between 55 and 65. While the age increases, far this range, the amount of diagnosed individuals decrease. The highest proportion of healthy individuals can be noticed between the approximate ages of 40 and 55, decreasing afterwards.
 
-### Distribution between continuous variables
+### **Exploring Numerical Variables by Diagnosis**
+
+Before searching for some more details, we explore some density plots related to selected numerical values. The goal is to create an overview how these numerical variables spread out in each health category and how their density correlates with it.
 
 ```{r}
 #Plotting the distribution of numerical variables, divided by diagnosis
@@ -69,7 +79,15 @@ ggsave(file = "../results/plot_2.png", density_grid, width = 8, height = 6, unit
 
 ```
 
-The plots show that, out of the four variables included in the analysis, that 'age' and 'thalach' seem to be the best at separating healthy and sick patients, as their peaks are in relatively different positions. To investigate this relationship, we're doing a linear model for each numerical variable.
+The result consists of four separate density plots arranged in a grid. Each plot focus on the distribution of a specific health variable - the 'age', 'trestbps', 'chol', and 'thalach'. As in the violin plot, the difference in the diagnosis is represented by the colors 'green' or 'red', indicating whether the individual is healthy or sick.
+
+In the "age" plot, the green curve has a peak around age 55 while the red curve peaks around age 60. This specifies that older people are more likely to be sick then younger people.
+
+In the "trestbps" plot, the curves overlap substantially. Both have a peak around 130 but the red curve is slightly shifted right indicating higher blood pressure in sick individuals.
+
+In the "chol" plot, the curves seem quite similar again but the green curve peaks around 240 while the red curve peaks at about 260 showing higher cholesterol levels in sick persons.
+
+In the "thalach" plot, the curves show a greater difference. Meanwhile, the green curve peaks near 160 while the red one nears its peak at about 140 showing lower maximum heart rates in ill persons. In summary, it suggests that individuals with health diseases tend to have slightly lower maximum heart rates than healthy individuals.
 
 The data was elongated by inserting each numerical variable into one column, called "numerical_variables".
 
@@ -109,7 +127,9 @@ fitted_data
 
 The linear models support that the 'chol' variable (cholesterol levels) is not significantly correlated to the diagnosis of a patient. Opposite from what was concluded from viewing the density plot, the 'trestbps' variable (resting blood pressure ) does show a correlation, though the p-value is higher for this variable compared to the remaining ones, 'age' and 'thalach' (maximum heart rate).
 
-### Distribution of categorical variables
+### **Exploring Categorical Variables by Diagnosis**
+
+In the following, we create a series of bar plots examining the distribution of various categorical variables in relation to different diagnoses.
 
 ```{r}
 # Plotting the disctribution of categorical variables, divided by diagnosis
@@ -139,8 +159,19 @@ ggsave(file = "../results/plot_3.png", bar_grid, width = 8, height = 6, units = 
 
 ```
 
-The plots show us that the variables fbs and restecg are not the best at separating diagnosed from undiagnosed patients, while cp, exang, thal, and ca do show separation between the two.
+The provided plot shows a series of bar plots comparing the health status (healthy or sick) of individuals based on various categorical variables including chest pain type, fasting blood sugar, resting electrocardiographic results, exercise induced angina, and thallium heart scan.
 
+The "cp" plot shows that asymptomatic individuals are categorized as sick while individuals with atypical angina, non-anignal pain and typical angina are mostly healthy.
+
+In the "thal" plot, those with a reversible defect are mostly sick, while those with normal results are for the most part healthy.
+
+The "fbs" plot shows that the "fbs" variable doesn't make a huge difference if a individual is diagnosed as either healthy or sick, both people with lower than 120mg/ml and greater than 120mg/ml have similar proportions.
+
+In the "exang" plot, it's shown that the individuals have an occurrence of exercise-induced angina are primarly sick. Those with an absence of exercise-induced angina are largely healthy.
+
+For "restecg", individuals with ST-T wave abnormality are most likely sick. others in this category lean towards being diagnosed as healthy. People having left ventricular hyperthrophy have a equal proportion of being either healthy or sick.
+
+In the last plot labeled "ca", as the count increases from 0 to 3, there is an increasing trend in being diagnosed as sick. So, more blockages or issues in the big blood vessels correlate with being sick.
 
 ### Results
 
