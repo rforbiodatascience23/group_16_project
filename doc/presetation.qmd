@@ -6,22 +6,24 @@ editor: visual
 css: style.css
 ---
 
-# Introduction
+## Introduction
 
-Heart disease
+::: {style="font-size: 0.6em"}
+The dataset consists of 303 observations and 14 variables in total. We have :
 
-::: columns
-::: {.column width="50%"}
+-   7 categorical variables: sex, cp(chest pain type), fbs(fasting blood sugar exceeds 120 mg/dl or not ), restecg(resting electrocardiographic results), exang(presence of exercise-induced angina), slope(the slope of the peak exercise ST segment), thal(thallium stress test).
+
+-   7 numerical variables: age, trestbps(resting blood pressure), chol(serum cholesterol levels), thalach(maximum heart rate), oldpeak(distance between baseline of ST segment), ca(number of colored major blood vessels), num(diagnosis of heart disease)
+
+The purpose of our analysis is to uncover key patterns and risk factors associated with coronary heart diseases. We aim to identify factors that highly correlates with heart disease and promote early disease intervention in patients.
 :::
 
-::: {.column width="50%"}
-:::
-:::
+## Material and Methods
 
-# Material and Methods
+### Work flow
 
-# Results
+## Results
 
-# Discussion
+## Discussion
 
-# References
+## References
