@@ -20,11 +20,45 @@ The purpose of our analysis is to uncover key patterns and risk factors associat
 
 ## Material and Methods
 
-![](../results/plot_1.png){fig-align="center"}
-
-### Work flow
+![](../results/workflow.png){fig-align="center"}
 
 ## Results
+
+### Data Visualization
+
+::: columns
+::: {.column width="50%"}
+![](../results/plot_2.png){fig-align="left"}
+:::
+
+::: {.column width="50%"}
+![](../results/plot_3.png){fig-align="right"}
+:::
+:::
+
+## Results
+
+### Principal Component Analysis
+
+![](../results/plot_6.png){fig-align="center"}
+
+## Results
+
+### Data Visualization
+
+::: columns
+::: {.column width="50%"}
+![](../results/plot_4.png){fig-align="left"}
+:::
+
+::: {.column width="50%"}
+![](../results/plot_5.png){fig-align="right"}
+:::
+:::
+
+## Results
+
+### Logistic regression
 
 ## Discussion
 
