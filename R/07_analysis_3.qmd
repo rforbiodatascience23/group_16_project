@@ -1,6 +1,7 @@
 ```{r}
 library(stats)
 library(ggplot2)
+library(readr)
 ```
 
 ```{r}
@@ -9,6 +10,8 @@ data_r <- read_tsv("../data/03_raw_aug.tsv")
 data <- read_tsv("../data/03_dat_aug.tsv")
 ```
 
+## PCA analysis
+
 ```{r}
 cont_var <- data_r[, c('age', 'trestbps', 'chol', 'thalach', 'oldpeak', 'ca')]
 bina_var <- data_r[, c('sex', 'exang', 'fbs', 'diagnose')]
@@ -16,7 +19,8 @@ cate_var <- data_r[, c('cp', 'slope', 'restecg', 'thal', 'num')]
 
 cont_scale <- scale(cont_var, center = TRUE, scale = TRUE)
 bina_scale <- bina_var
-cate_matrix <- model.matrix(~ 0 + cp + slope + restecg + thal,
+cate_var <- data.frame(lapply(cate_var, as.factor))
+cate_matrix <- model.matrix(~ 0 + .,
                             data = cate_var)
 cate_scale <- as.data.frame(cate_matrix)
 
@@ -25,13 +29,27 @@ pca_results <- prcomp(combined_data, center = TRUE, scale. = TRUE)
 
 summary(pca_results)
 ```
-```{r}
 
+For the PCA analysis, scaling is an important step for the variance calculation, so variables with larger units will not dominate the analysis. The dataset contains continous, binary and categorical data, each should be scaled differently.
+
+-   For the continous variables, a z-score standardization is done, resulting in variables with mean of 0 and standard deviation of 1.
+
+-   For the binary variables, it is left as it is, so it can reflect the its impact on the data.
+
+-   For the categorical variables, one-hot encoding is done
+
+By looking of the results of PCA, there are several take-aways.
+
+PC1 has the highest standard deviation, meaning it captures the highest amount of variance in the dataset at 18.5%. The first few PCs captures the most variance in the data, the proportion decreases the each subsequent PC, PC23 and PC24 capture effectively no variance in the dataset.
+
+```{r}
 pca_data <- data.frame(PC1 = pca_results$x[, 1], PC2 = pca_results$x[, 2], Diagnose = as.factor(data$diagnose))
 
-ggplot(pca_data, aes(x = PC1, y = PC2, color = Diagnose)) +
+plot_6 <- ggplot(pca_data, aes(x = PC1, y = PC2, color = Diagnose)) +
   scale_color_manual(values = c("darkgreen", "red")) +
   geom_point(size = 3) + 
   labs(title = "PCA Score Plot with Binary Variable Coloring")
+ggsave(file = "../results/plot_6.png", plot_6, width = 8, height = 6, units = "in")
 ```
 
+To further analyse the data, a score plot is done for the PC1 and PC2, seperated by the binary variable "diagnose". It is observed that there is overlap between the "healthy" and "sick", meaning the first two PCs is not sufficient for disguising these two groups. The spread on the PC1 axis is wider than PC2, which correctly reflects the fact that PC1 captures higher variance in the dataset. Even though the separation of the groups is not clear, there are tendencies of clusters on each side of x = 0 for PC1.

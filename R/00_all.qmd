@@ -1,12 +1,12 @@
 ---
 format:
-  revealjs:
-    embed-resources: true
+  html: {}
 ---
 
 # 00_all
+
 ```{r}
-library(knitr)
+library(quarto)
 ```
 
 ### This is our final Quarto Markdown document with all other documents embedded
@@ -41,6 +41,11 @@ library(knitr)
 ```{r child  = "./06_analysis_2.qmd"}
 ```
 
+## 07_analysis_3
+
+```{r child  = "./07_analysis_3.qmd"}
+```
+
 ## Render all files
 
 The following code renders all quarto documents into html and put them into the results folder.
@@ -51,11 +56,10 @@ results_path <- '../results/'
 output_format <- 'html'
 for (filename in filenames) {
   quarto::quarto_render(input = filename)
-  file.rename(from = paste(filename[1:(nchar(filename) - 3),
-                                    output_format]),
+  file.rename(from = paste0(substr(filename, 1, nchar(filename) - 3),
+                                    output_format),
             to = paste(results_path,
-                       paste(filename[1:(nchar(filename) - 3),
-                                    output_format])))
+                       paste0(substr(filename, 1, nchar(filename) - 3),
+                                    output_format)))
 }
 ```
-
