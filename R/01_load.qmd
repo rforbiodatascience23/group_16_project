@@ -8,7 +8,7 @@ format:
 
 After selecting our dataset, we loaded and saved it into our data repository. This pivotal step sets the foundation for our analysis, allowing us to explore and draw insights from the abundance of information within the dataset.
 
-1.  Load in all important library's
+1.  Load in all important libraries
 
 ```{r}
 #| message: false
