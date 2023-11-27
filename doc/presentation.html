@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="presetation_files/libs/clipboard/clipboard.min.js"></script>
-<script src="presetation_files/libs/quarto-html/tabby.min.js"></script>
-<script src="presetation_files/libs/quarto-html/popper.min.js"></script>
-<script src="presetation_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="presetation_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="presetation_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="presetation_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="presentation_files/libs/clipboard/clipboard.min.js"></script>
+<script src="presentation_files/libs/quarto-html/tabby.min.js"></script>
+<script src="presentation_files/libs/quarto-html/popper.min.js"></script>
+<script src="presentation_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="presentation_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="presentation_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="presentation_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.2.475">
 
   <meta name="author" content="Group_16">
@@ -14,8 +14,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="presetation_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="presetation_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="presentation_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="presentation_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -29,12 +29,12 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="presetation_files/libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link rel="stylesheet" href="presentation_files/libs/revealjs/dist/theme/quarto.css" id="theme">
   <link rel="stylesheet" href="style.css">
-  <link href="presetation_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="presetation_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="presetation_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="presetation_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link href="presentation_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="presentation_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="presentation_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="presentation_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -336,35 +336,90 @@ Group_16
 </div>
 
 </section>
-<section id="introduction" class="title-slide slide level1 center">
-<h1>Introduction</h1>
-<div style="font-size: 0.6em">
+<section id="introduction" class="slide level2">
+<h2>Introduction</h2>
+<div style="font-size: 0.7em">
 <p>The dataset consists of 303 observations and 14 variables in total. We have :</p>
 <ul>
-<li><p>7 categorical variables: sex, cp(chest pain type), fbs(fasting blood sugar exceeds 120 mg/dl or not ), restecg(esting electrocardiographic results), exang(presence of exercise-induced angina), slope(the slope of the peak exercise ST segment), thal(thallium stress test).</p></li>
+<li><p>7 categorical variables: sex, cp(chest pain type), fbs(fasting blood sugar exceeds 120 mg/dl or not ), restecg(resting electrocardiographic results), exang(presence of exercise-induced angina), slope(the slope of the peak exercise ST segment), thal(thallium stress test).</p></li>
 <li><p>7 numerical variables: age, trestbps(resting blood pressure), chol(serum cholesterol levels), thalach(maximum heart rate), oldpeak(distance between baseline of ST segment), ca(number of colored major blood vessels), num(diagnosis of heart disease)</p></li>
 </ul>
 <p>The purpose of our analysis is to uncover key patterns and risk factors associated with coronary heart diseases. We aim to identify factors that highly correlates with heart disease and promote early disease intervention in patients.</p>
 </div>
 </section>
+<section id="material-and-methods" class="slide level2">
+<h2>Material and Methods</h2>
 
-<section id="material-and-methods" class="title-slide slide level1 center">
-<h1>Material and Methods</h1>
-
+<img data-src="../results/workflow.png" class="r-stretch quarto-figure-center"></section>
+<section id="results" class="slide level2">
+<h2>Results</h2>
+<h3 id="data-visualization">Data Visualization</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="../results/plot_2.png"></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src="../results/plot_3.png"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
+<section id="results-1" class="slide level2">
+<h2>Results</h2>
+<h3 id="principal-component-analysis">Principal Component Analysis</h3>
 
-<section id="results" class="title-slide slide level1 center">
-<h1>Results</h1>
-
+<img data-src="../results/plot_6.png" class="r-stretch quarto-figure-center"></section>
+<section id="results-2" class="slide level2">
+<h2>Results</h2>
+<h3 id="linear-regression">Linear Regression</h3>
 </section>
-
-<section id="discussion" class="title-slide slide level1 center">
-<h1>Discussion</h1>
-
+<section id="results-3" class="slide level2">
+<h2>Results</h2>
+<h3 id="data-visualization-1">Data Visualization</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="../results/plot_4.png"></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src="../results/plot_5.png"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
+<section id="results-4" class="slide level2">
+<h2>Results</h2>
+<h3 id="logistic-regression">Logistic Regression</h3>
 
-<section id="references" class="title-slide slide level1 center">
-<h1>References</h1>
+<img data-src="../results/logistic.png" class="r-stretch quarto-figure-center"></section>
+<section id="discussion" class="slide level2">
+<h2>Discussion</h2>
+<div style="font-size: 0.8em">
+<p>We identified several key predictors of heart disease, including the type of chest pain (cp), number of detectable vessels (thal), major vessels colored by fluoroscopy (ca), and ST depression (oldpeak).</p>
+<p>In clinical practice, the diagnosis of heart disease often involves individual differences and a multitude of complex factors. The correlated factors can provide important reference points for clinicians in the diagnostic process, helping them to identify potential risk factors for heart disease at an earlier stage, thereby improving patients’ survival chances and overall health.</p>
+<p>In summary, our study highlights the potential value of data analysis in enhancing the diagnosis and treatment of heart disease.</p>
+</div>
+</section>
+<section id="references" class="slide level2">
+<h2>References</h2>
+<div style="font-size: 0.7em">
+<p>Janosi,Andras, Steinbrunn,William, Pfisterer,Matthias, and Detrano,Robert. (1988). Heart Disease. UCI Machine Learning Repository. https://doi.org/10.24432/C52P4X.</p>
+<p>Detrano, Robert C. et al.&nbsp;“International application of a new probability algorithm for the diagnosis of coronary artery disease.” The American journal of cardiology 64 5 (1989): 304-10.</p>
+<p>Detrano R, Salcedo EE, Hobbs RE, Yiannikas J. Cardiac cinefluoroscopy as an inexpensive aid in the diagnosis of coronary artery disease. Am J Cardiol. 1986 May 1;57(13):1041-6. doi: 10.1016/0002-9149(86)90671-5. PMID: 3706156.</p>
+<p>Ayatollahi, Haleh et al.&nbsp;“Predicting coronary artery disease: a comparison between two data mining algorithms.” BMC Public Health 19 (2019): n.&nbsp;pag.</p>
+<p>Longo D, Fauci A, Kasper D, Hauser S. Harrison’s principles of internal medicine. 18th ed.&nbsp;New York: McGraw-Hill Professionals; 2011.</p>
+</div>
 <div class="footer footer-default">
 
 </div>
@@ -373,19 +428,19 @@ Group_16
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="presetation_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="presentation_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="presetation_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="presetation_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="presetation_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="presetation_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="presetation_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="presentation_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="presentation_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="presentation_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="presentation_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="presentation_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="presetation_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="presetation_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="presetation_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="presetation_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="presentation_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="presentation_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="presentation_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="presentation_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
