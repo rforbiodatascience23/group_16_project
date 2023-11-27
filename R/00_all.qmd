@@ -11,58 +11,65 @@ editor: visual
 
 ### This is our final Quarto Markdown document with all other documents embedded and rendered
 
-Run this chunk only
-
-```{r}
-library(quarto)
-files_to_render <- c(
-  "00_all.qmd",
-  "01_load.qmd",
-  "02_clean.qmd",
-  "03_augment.qmd",
-  "04_describe.qmd",
-  "05_analysis_1.qmd",
-  "06_analysis_2.qmd",
-  "07_analysis_3.qmd"
-)
-
-quarto_render(
-  input_files = files_to_render,
-  output_dir = "../results",
-  output_format = "html_document"
-)
-
-quarto_render(
-  input_files = "../doc/presentation.qmd",
-  output_dir = "../doc",
-  output_format = "html_document"
-)
-```
-
 ## 01_load
 
-{{< include 01_load.qmd >}}
+```{r}
+quarto::quarto_render("~/projects/group_16_project/R/01_load.qmd")
+
+file.rename(from = "~/projects/group_16_project/R/01_load.html",
+             to = "~/projects/group_16_project/results/01_load.html" )
+```
 
 ## 02_clean
 
-{{< include 02_clean.qmd >}}
+```{r}
+quarto::quarto_render("~/projects/group_16_project/R/02_clean.qmd")
+
+file.rename(from = "~/projects/group_16_project/R/02_clean.html",
+             to = "~/projects/group_16_project/results/02_clean.html" )
+```
 
 ## 03_augment
 
-{{< include 03_augment.qmd >}}
+```{r}
+quarto::quarto_render("~/projects/group_16_project/R/03_augment.qmd")
+
+file.rename(from = "~/projects/group_16_project/R/03_augment.html",
+             to = "~/projects/group_16_project/results/03_augment.html" )
+```
 
 ## 04_describe
 
-{{< include 04_describe.qmd >}}
+```{r}
+quarto::quarto_render("~/projects/group_16_project/R/04_describe.qmd")
+
+file.rename(from = "~/projects/group_16_project/R/04_describe.html",
+             to = "~/projects/group_16_project/results/04_describe.html" )
+```
 
 ## 05_analysis_1
 
-{{< include 05_analysis_1.qmd >}}
+```{r}
+quarto::quarto_render("~/projects/group_16_project/R/05_analysis_1.qmd")
+
+file.rename(from = "~/projects/group_16_project/R/05_analysis_1.html",
+             to = "~/projects/group_16_project/results/05_analysis_1.html" )
+```
 
 ## 06_analysis_2
 
-{{< include 06_analysis_2.qmd >}}
+```{r}
+quarto::quarto_render("~/projects/group_16_project/R/06_analysis_2.qmd")
+
+file.rename(from = "~/projects/group_16_project/R/06_analysis_2.html",
+             to = "~/projects/group_16_project/results/06_analysis_2.html" )
+```
 
 ## 07_analysis_3
 
-{{< include 07_analysis_3.qmd >}}
+```{r}
+quarto::quarto_render("~/projects/group_16_project/R/07_analysis_3.qmd")
+
+file.rename(from = "~/projects/group_16_project/R/07_analysis_3.html",
+             to = "~/projects/group_16_project/results/07_analysis_3.html" )
+```
