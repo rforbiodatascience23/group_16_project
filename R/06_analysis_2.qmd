@@ -3,11 +3,15 @@ format:
   html: {}
 ---
 
+# Analysis of data
+
+### Libraries
+
 ```{r}
 library("tidyverse")
 ```
 
-# Analysis of data
+### Loading data
 
 ```{r}
 #| message: false
@@ -15,6 +19,8 @@ data <- read_tsv("../data/03_dat_aug.tsv")
 ```
 
 ## Data visualization
+
+Pulling from what was learned during previous data visualization, the following plot was made from the variables 'ca' and 'cp', divided by the diagnosis.
 
 ```{r}
 plot_4 <- ggplot(data, aes(x = ca, fill = cp)) +
@@ -36,6 +42,8 @@ ggsave(file = "../results/plot_4.png", plot_4, width = 8, height = 6, units = "i
 
 Overall, the plot suggests a relationship between the number of colored major vessels, the type of chest pain experienced, and the health status (healthy or sick) of individuals. It implies that 'typical angina' and 'atypical angina' are more common among healthy individuals with fewer colored major vessels, whereas 'asymptomatic' is more common in the sick group, with the number of colored major vessels showing a varied distribution. This in short gives the picture that both asymptomatic chest pain and having colored major vessels are indicators of having heart disease.
 
+From the horizontal bar charts in 05_analysis_1, we see that asymptomatic chest pain is highly linked to an individual being sick. To understand some of the underlying reasons for this, we decided to plot the ST depression against the max heart rate for patients experiencing the asymptomatic chest pain, as these two attributes also showed to be correlated to heart disease.
+
 ```{r}
 plot_5 <- ggplot(data |> filter (cp=="asymptomatic"), 
              aes(x = oldpeak, 
@@ -49,7 +57,7 @@ plot_5 <- ggplot(data |> filter (cp=="asymptomatic"),
               se = FALSE, 
               color = "black") +
   scale_color_manual(values = c("darkgreen", 
-                                "red"))+
+                                "red")) +
   facet_wrap(~sex) +
   labs(title = "Relationship between Max heart rate and ST depression",
        subtitle = "Focused on asymptomatic chest pain and stratified by sex",
@@ -66,11 +74,11 @@ plot_5
 ggsave(file = "../results/plot_5.png", plot_5, width = 8, height = 6, units = "in")
 ```
 
-From the horizontal bar charts in 05_analysis_1, we see that asymptomatic chest pain is highly linked to an individual being sick. To understand some of the underlying reasons for this, we decided to plot the ST depression against the max heart rate for patients experiencing the asymptomatic chest pain. As ST depression is usually linked to blood supply to the heart, a higher value combined with a lower than average max heart rate could imply that a patient is sick, which is exactly what we see in the plot above. In conclusion, for the people experiencing asymptomatic chest pain, we see an inverse correlation between maximum heart rate and their level of ST depression leading to the idea that these could be influential in predicting a patient to be sick.
+As ST depression is usually linked to blood supply to the heart, a higher value combined with a lower than average max heart rate could imply that a patient is sick, which is exactly what we see in the plot above. In conclusion, for the people experiencing asymptomatic chest pain, we see an inverse correlation between maximum heart rate and their level of ST depression leading to the idea that these could be influential in predicting a patient to be sick.
 
 ## Logistic regression
 
-Since we have multiple categorical and numerical variables, and try to find correlations between the diagnosis of heart disease. We decided to introduce a logistic regression model to fit our data and also present a statistical analysis.
+Since we have multiple categorical and numerical variables, and try to find correlations between the diagnosis of heart disease, we decided to introduce a logistic regression model to fit our data and also present a statistical analysis.
 
 ```{r}
 data_log <- data |> 
