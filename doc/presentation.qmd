@@ -4,7 +4,6 @@ author: "Group_16"
 format:
   revealjs: 
     theme: serif
-editor: visual
 css: style.css
 ---
 
