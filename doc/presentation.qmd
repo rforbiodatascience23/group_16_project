@@ -114,7 +114,7 @@ font-size: 80px !important;
 ## Discussion
 
 ::: {style="font-size: 0.9em"}
-We identified several key predictors of heart disease, including the type of chest pain (cp), number of detectable vessels (thal), major vessels colored by fluoroscopy (ca), and ST depression (oldpeak).
+We identified several key predictors of heart disease, including the type of chest pain (cp), major vessels colored by fluoroscopy (ca), and ST depression (oldpeak).
 
 In clinical practice, the diagnosis of heart disease often involves individual differences and a multitude of complex factors. The correlated factors can provide important reference points for clinicians in the diagnostic process, helping them to identify potential risk factors for heart disease at an earlier stage, thereby improving patients' survival chances and overall health.
 
