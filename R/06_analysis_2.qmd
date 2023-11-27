@@ -9,6 +9,7 @@ format:
 
 ```{r}
 library("tidyverse")
+library('broom')
 ```
 
 ### Loading data
