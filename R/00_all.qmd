@@ -31,6 +31,12 @@ quarto_render(
   output_dir = "../results",
   output_format = "html_document"
 )
+
+quarto_render(
+  input_files = "../doc/presentation.qmd",
+  output_dir = "../doc",
+  output_format = "html_document"
+)
 ```
 
 ## 01_load
