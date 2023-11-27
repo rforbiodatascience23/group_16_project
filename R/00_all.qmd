@@ -1,65 +1,62 @@
 ---
+title: "00_all"
+author: "Group 16"
 format:
-  html: {}
+  html:
+    embed-resources: true
+editor: visual
 ---
 
 # 00_all
 
+### This is our final Quarto Markdown document with all other documents embedded and rendered
+
+Run this chunk only
+
 ```{r}
 library(quarto)
-```
+files_to_render <- c(
+  "00_all.qmd",
+  "01_load.qmd",
+  "02_clean.qmd",
+  "03_augment.qmd",
+  "04_describe.qmd",
+  "05_analysis_1.qmd",
+  "06_analysis_2.qmd",
+  "07_analysis_3.qmd"
+)
 
-### This is our final Quarto Markdown document with all other documents embedded
+quarto_render(
+  input_files = files_to_render,
+  output_dir = "../results",
+  output_format = "html_document"
+)
+```
 
 ## 01_load
 
-```{r child  = "./01_load.qmd"}
-```
+{{< include 01_load.qmd >}}
 
 ## 02_clean
 
-```{r child  = "./02_clean.qmd"}
-```
+{{< include 02_clean.qmd >}}
 
 ## 03_augment
 
-```{r child  = "./03_augment.qmd"}
-```
+{{< include 03_augment.qmd >}}
 
 ## 04_describe
 
-```{r child  = "./04_describe.qmd"}
-```
+{{< include 04_describe.qmd >}}
 
 ## 05_analysis_1
 
-```{r child  = "./05_analysis_1.qmd"}
-```
+{{< include 05_analysis_1.qmd >}}
 
 ## 06_analysis_2
 
-```{r child  = "./06_analysis_2.qmd"}
-```
+{{< include 06_analysis_2.qmd >}}
 
 ## 07_analysis_3
 
-```{r child  = "./07_analysis_3.qmd"}
-```
-
-## Render all files
-
-The following code renders all quarto documents into html and put them into the results folder.
-
-```{r}
-filenames <- list.files('.')[-c(1, length(list.files('.')))]
-results_path <- '../results/'
-output_format <- 'html'
-for (filename in filenames) {
-  quarto::quarto_render(input = filename)
-  file.rename(from = paste0(substr(filename, 1, nchar(filename) - 3),
-                                    output_format),
-            to = paste(results_path,
-                       paste0(substr(filename, 1, nchar(filename) - 3),
-                                    output_format)))
-}
-```
+{{< include 07_analysis_3.qmd >}}
