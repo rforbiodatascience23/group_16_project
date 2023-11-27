@@ -1,27 +1,75 @@
 ---
-title: "HeartScope: Predictive Analysis of Cardiovascular Health Data"
+title: "Predictive Analysis of Heart Health Data"
+title-block-banner: true
+date: 11/28/2024
+date-format: "28 Nov 2023"
 author: "Group_16"
-format:
-  revealjs: 
+css: style.css
+engine: knitr
+format: 
+  revealjs:
     embed-resources: true
-    theme: serif
+    theme: solarized
 ---
+
+```{css, include = FALSE}
+
+.title { 
+font-size: 80px !important;
+
+}
+
+```
+
+## Table of content
+
+::: {style="font-size: 0.6em"}
+-   Introduction
+-   Material and Methods
+-   Analysis and Discussion
+-   Conclusion and Perspectives
+-   References
+:::
 
 ## Introduction
 
-::: {style="font-size: 0.7em"}
-The dataset consists of 303 observations and 14 variables in total. We have :
+::: {style="font-size: 0.6em"}
+-   Many different types of heart diseases
+-   Most common: heart coronary artery disease (CAD) -\> affects the blood flow to the heart\
+    = Decreased blood flow -\> heart attacks
+-   Symptoms: Chest pain, heartburn, shortness of breath, fluttering feelings in the chest,...
+-   Risk factors: High blood pressure, high blood cholesterol, and smoking
+:::
 
--   7 categorical variables: sex, cp(chest pain type), fbs(fasting blood sugar exceeds 120 mg/dl or not ), restecg(resting electrocardiographic results), exang(presence of exercise-induced angina), slope(the slope of the peak exercise ST segment), thal(thallium stress test).
+## Aim {.center}
 
--   7 numerical variables: age, trestbps(resting blood pressure), chol(serum cholesterol levels), thalach(maximum heart rate), oldpeak(distance between baseline of ST segment), ca(number of colored major blood vessels), num(diagnosis of heart disease)
-
-The purpose of our analysis is to uncover key patterns and risk factors associated with coronary heart diseases. We aim to identify factors that highly correlates with heart disease and promote early disease intervention in patients.
+::: {style="font-size: 0.6em"}
+-   Uncover key patterns and risk factors associated with heart diseases
+-   Identify factors highly correlated with heart disease
+-   Promote early disease intervention in patients
 :::
 
 ## Material and Methods
 
 ![](../results/workflow.png){fig-align="center"}
+
+## Data set Overview
+
+::: {style="font-size: 0.6em"}
+-   Extracted data set providing all necessary information
+
+-   Heart Disease data set -\> [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/45/heart+disease)
+
+-   Snapshot of heart disease prevalence in specific individuals
+
+-   This database has 76 attributes -\> focusing on a subset of 14 attributes
+:::
+
+```{css}
+.center h2 {
+  text-align: center;
+}
+```
 
 ## Results
 
@@ -39,16 +87,6 @@ The purpose of our analysis is to uncover key patterns and risk factors associat
 
 ## Results
 
-### Principal Component Analysis
-
-![](../results/plot_6.png){fig-align="center"}
-
-## Results
-
-### Linear Regression
-
-## Results
-
 ### Data Visualization
 
 ::: columns
@@ -63,13 +101,17 @@ The purpose of our analysis is to uncover key patterns and risk factors associat
 
 ## Results
 
+### Principal Component Analysis
+
+![](../results/plot_6.png){fig-align="center"} \## Results
+
 ### Logistic Regression
 
 ![](../results/logistic.png){fig-align="center"}
 
 ## Discussion
 
-::: {style="font-size: 0.8em"}
+::: {style="font-size: 0.5em"}
 We identified several key predictors of heart disease, including the type of chest pain (cp), number of detectable vessels (thal), major vessels colored by fluoroscopy (ca), and ST depression (oldpeak).
 
 In clinical practice, the diagnosis of heart disease often involves individual differences and a multitude of complex factors. The correlated factors can provide important reference points for clinicians in the diagnostic process, helping them to identify potential risk factors for heart disease at an earlier stage, thereby improving patients' survival chances and overall health.
@@ -79,7 +121,7 @@ In summary, our study highlights the potential value of data analysis in enhanci
 
 ## References
 
-::: {style="font-size: 0.7em"}
+::: {style="font-size: 0.5em"}
 Janosi,Andras, Steinbrunn,William, Pfisterer,Matthias, and Detrano,Robert. (1988). Heart Disease. UCI Machine Learning Repository. https://doi.org/10.24432/C52P4X.
 
 Detrano, Robert C. et al. "International application of a new probability algorithm for the diagnosis of coronary artery disease." The American journal of cardiology 64 5 (1989): 304-10.
