@@ -23,7 +23,7 @@ font-size: 80px !important;
 
 ## Table of content
 
-::: {style="font-size: 0.8em"}
+::: {style="font-size: 1.0em"}
 -   Introduction
 -   Material and Methods
 -   Analysis and Discussion
@@ -33,7 +33,7 @@ font-size: 80px !important;
 
 ## Introduction
 
-::: {style="font-size: 0.8em"}
+::: {style="font-size: 1.0em"}
 -   Many different types of heart diseases
 -   Most common: heart coronary artery disease (CAD) -\> affects the blood flow to the heart\
     = Decreased blood flow -\> heart attacks
@@ -43,7 +43,7 @@ font-size: 80px !important;
 
 ## Aim {.center}
 
-::: {style="font-size: 0.8em"}
+::: {style="font-size: 1.0em"}
 -   Uncover key patterns and risk factors associated with heart diseases
 -   Identify factors highly correlated with heart disease
 -   Promote early disease intervention in patients
@@ -55,7 +55,7 @@ font-size: 80px !important;
 
 ## Data set Overview
 
-::: {style="font-size: 0.8em"}
+::: {style="font-size: 1.0em"}
 -   Extracted data set providing all necessary information
 
 -   Heart Disease data set -\> [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/45/heart+disease)
@@ -99,11 +99,7 @@ font-size: 80px !important;
 :::
 :::
 
-## Results
 
-### Principal Component Analysis
-
-![](../results/plot_6.png){fig-align="center" width="1800"}
 
 ## Results
 
@@ -113,7 +109,7 @@ font-size: 80px !important;
 
 ## Discussion
 
-::: {style="font-size: 0.8em"}
+::: {style="font-size: 0.9em"}
 We identified several key predictors of heart disease, including the type of chest pain (cp), number of detectable vessels (thal), major vessels colored by fluoroscopy (ca), and ST depression (oldpeak).
 
 In clinical practice, the diagnosis of heart disease often involves individual differences and a multitude of complex factors. The correlated factors can provide important reference points for clinicians in the diagnostic process, helping them to identify potential risk factors for heart disease at an earlier stage, thereby improving patients' survival chances and overall health.
@@ -123,7 +119,7 @@ In summary, our study highlights the potential value of data analysis in enhanci
 
 ## References
 
-::: {style="font-size: 0.7em"}
+::: {style="font-size: 0.8em"}
 Janosi,Andras, Steinbrunn,William, Pfisterer,Matthias, and Detrano,Robert. (1988). Heart Disease. UCI Machine Learning Repository. https://doi.org/10.24432/C52P4X.
 
 Detrano, Robert C. et al. "International application of a new probability algorithm for the diagnosis of coronary artery disease." The American journal of cardiology 64 5 (1989): 304-10.
