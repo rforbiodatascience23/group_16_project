@@ -178,6 +178,6 @@ The "slope" plot shows that an upsloping ST segment could be an indicator of hea
 
 From all six plots, it seems like types of chest pain could be the best attribute to indicate heart disease in a patient, though the thallium heart scan and exercise induced angina also separate the two groups well.
 
-### Conclusion
+# Discussion
 
 From the visualization and linear models, we've formed a general understanding of our data, and the relationship between the diagnosis of a patient, and all other attributes. The numerical variables which showed the strongest correlation to diagnosis were 'ca', 'oldpeak', and 'thalach', while the best categorical variables were 'cp', 'thal', and 'exang'.
