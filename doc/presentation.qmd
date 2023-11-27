@@ -101,6 +101,12 @@ font-size: 80px !important;
 
 ## Results
 
+### Principal Component Analysis
+
+![](../results/plot_6.png){fig-align="center"}
+
+## Results
+
 ### Logistic Regression
 
 ![](../results/logistic.png){fig-align="center"}
