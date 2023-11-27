@@ -99,8 +99,6 @@ font-size: 80px !important;
 :::
 :::
 
-
-
 ## Results
 
 ### Logistic Regression
