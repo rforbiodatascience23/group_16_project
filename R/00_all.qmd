@@ -4,6 +4,7 @@ format:
 ---
 
 # 00_all
+
 ```{r}
 library(quarto)
 ```
@@ -40,6 +41,11 @@ library(quarto)
 ```{r child  = "./06_analysis_2.qmd"}
 ```
 
+## 07_analysis_3
+
+```{r child  = "./07_analysis_3.qmd"}
+```
+
 ## Render all files
 
 The following code renders all quarto documents into html and put them into the results folder.
@@ -57,4 +63,3 @@ for (filename in filenames) {
                                     output_format)))
 }
 ```
-
