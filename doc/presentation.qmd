@@ -4,6 +4,7 @@ author: "Group_16"
 format:
   revealjs: 
     theme: serif
+    embed-resources: true
 ---
 
 ## Introduction
