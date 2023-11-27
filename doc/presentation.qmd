@@ -3,8 +3,8 @@ title: "HeartScope: Predictive Analysis of Cardiovascular Health Data"
 author: "Group_16"
 format:
   revealjs: 
-    theme: serif
     embed-resources: true
+    theme: serif
 ---
 
 ## Introduction
